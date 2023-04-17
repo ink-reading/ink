@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      transitionDuration: {
+        '400': '400ms',
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
