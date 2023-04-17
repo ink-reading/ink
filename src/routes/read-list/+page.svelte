@@ -4,8 +4,8 @@
 
 <Layout>
   <div slot="side">
-    daily digest
+    read-it-later list
   </div>
   
-  <h1>digest</h1>
+  <h1>read it later</h1>
 </Layout>
