@@ -1,13 +1,14 @@
 <script lang="ts">
-  import { selected, type FeedSelectedList } from "$lib/stores/feed";
+  import { selected, type FeedSelected } from "$lib/stores/feed";
 
   import IconMore from "$lib/icons/more-vertical.svg?component";
 
-  export let name: Exclude<FeedSelectedList, number>;
+  export let id: Exclude<FeedSelected, number>;
+  export let name: string;
 
-  $: active = $selected === name;
+  $: active = $selected === id;
 
-  const onSelect = () => $selected = name;
+  const onSelect = () => $selected = id;
  
 </script>
 
@@ -18,12 +19,8 @@
   on:keypress={onSelect}
 >
   <div class="flex items-center">
-    <div class="p-1 mx-1">
-      <slot />
-    </div>
-    <div>
-      {name}
-    </div>
+    <div class="p-1 mx-1"><slot /></div>
+    <span>{name}</span>
   </div>
   <div class="flex items-center">
     <span

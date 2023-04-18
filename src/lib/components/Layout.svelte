@@ -45,7 +45,7 @@
       style:min-width={$sideWith}
       style:width={$sideWith}
     >
-      <nav class="flex justify-between p-2">
+      <nav class="flex justify-between p-2 pb-1">
         <NavIcon to="/"><IconCompass /></NavIcon>
         <div class="flex">
           <NavIcon to="/read-list"><IconBookRead /></NavIcon>
