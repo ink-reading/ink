@@ -1,7 +1,6 @@
 <script lang="ts">
+	import { IconMore } from "$lib/icons";
   import { selected, type FeedSelected } from "$lib/stores/feed";
-
-  import IconMore from "$lib/icons/more-vertical.svg?component";
 
   export let id: Exclude<FeedSelected, number>;
   export let name: string;

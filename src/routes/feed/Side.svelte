@@ -1,10 +1,7 @@
 <script lang="ts">
-  import SmartFolder from "./SmartFolder.svelte";
+	import { IconCircle, IconCoffee, IconPlus, IconStar } from "$lib/icons";
 
-  import IconCircle from "$lib/icons/circle.svg?component";
-  import IconCoffee from "$lib/icons/coffee.svg?component";
-  import IconStar from "$lib/icons/star.svg?component";
-  import IconPlus from "$lib/icons/plus.svg?component";
+  import SmartFolder from "./SmartFolder.svelte";
 
 </script>
 

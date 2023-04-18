@@ -1,14 +1,6 @@
 <script>
+	import { IconUser, IconPalette, IconBookRead, IconRss, IconInbox, IconPodcast, IconBarChart, IconInfo } from "$lib/icons";
 	import MenuItem from "./MenuItem.svelte";
-
-  import IconInbox from "$lib/icons/inbox.svg?component";
-  import IconRss from "$lib/icons/rss.svg?component";
-  import IconBarChart from "$lib/icons/bar-chart.svg?component";
-  import IconBookRead from "$lib/icons/book-read.svg?component";
-  import IconPodcast from "$lib/icons/podcast.svg?component";
-  import IconUser from "$lib/icons/user.svg?component";
-  import IconInfo from "$lib/icons/info.svg?component";
-  import IconPalette from "$lib/icons/palette.svg?component";
 
 </script>
 <div class="font-bold px-2 pt-1 pb-3">

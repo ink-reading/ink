@@ -1,17 +1,9 @@
 <script lang="ts">
   import { fly, fade } from "svelte/transition";
   
+	import { IconBarChart, IconBookRead, IconChevronsLeft, IconChevronsright, IconCompass, IconInbox, IconPodcast, IconRss, IconSettings } from "$lib/icons";
+  
   import NavIcon from "$lib/components/NavIcon.svelte";
- 
-  import IconInbox from "$lib/icons/inbox.svg?component";
-  import IconSettings from "$lib/icons/settings.svg?component";
-  import IconRss from "$lib/icons/rss.svg?component";
-  import IconBarChart from "$lib/icons/bar-chart.svg?component";
-  import IconCompass from "$lib/icons/compass.svg?component";
-  import IconBookRead from "$lib/icons/book-read.svg?component";
-  import IconPodcast from "$lib/icons/podcast.svg?component";
-  import IconChevronsLeft from "$lib/icons/chevrons-left.svg?component";
-  import IconChevronsright from "$lib/icons/chevrons-right.svg?component";
   
   import { sidebar, sideWith } from "$lib/stores/layout";
 
