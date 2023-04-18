@@ -11,15 +11,19 @@
   
   const onSidebarResize = () => {
     sidebarContainer!.style.transitionProperty = 'none';
-    const resize = (evt: MouseEvent) => {
-      if (evt.x < 200 || evt.x > 700) return;
-      $sideWith = `${evt.x}px`;
-    }
     document.addEventListener("mousemove", resize);
-    document.addEventListener("mouseup", () => {
-      document.removeEventListener("mousemove", resize);
-      sidebarContainer!.style.transitionProperty = "flex-basis";
-    });
+    document.addEventListener("mouseup", stopResize);
+  }
+
+  const resize = (evt: MouseEvent) => {
+    if (evt.x < 200 || evt.x > 700) return;
+    $sideWith = `${evt.x}px`;
+  }
+
+  const stopResize = () => {
+    sidebarContainer!.style.transitionProperty = "flex-basis";
+    document.removeEventListener("mousemove", resize);
+    document.removeEventListener("mouseup", stopResize);
   }
 
 </script>
