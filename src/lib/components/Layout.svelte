@@ -32,7 +32,7 @@
 
 </script>
 
-<div class="w-full h-screen flex text-ink overflow-y-auto">
+<div class="w-full h-screen flex text-ink text-sm overflow-y-auto">
 
   <!-- sidebar -->
   <div
@@ -41,11 +41,11 @@
     style:flex-basis={$sidebar ? $sideWith : "0px"}
   >
     <aside
-      class="h-full p-2 pb-6 flex flex-col justify-between overflow-y-auto group"
+      class="h-full flex flex-col justify-between overflow-y-auto group"
       style:min-width={$sideWith}
       style:width={$sideWith}
     >
-      <nav class="flex justify-between">
+      <nav class="flex justify-between p-2">
         <NavIcon to="/"><IconCompass /></NavIcon>
         <div class="flex">
           <NavIcon to="/read-list"><IconBookRead /></NavIcon>
@@ -57,7 +57,7 @@
       <section class="flex-grow overflow-y-auto">
         <slot name="side" />
       </section>
-      <nav class="flex justify-between">
+      <nav class="flex justify-between px-2 pb-2">
         <div class="flex">
           <NavIcon to="/settings"><IconSettings /></NavIcon>
           <NavIcon to="/stats"><IconBarChart /></NavIcon>  
@@ -81,7 +81,7 @@
   <!-- show sidebar btn -->
   {#if !$sidebar}
     <button
-      class="p-2 fixed left-2 bottom-6"
+      class="p-2 fixed left-2 bottom-2"
       in:fly={{ delay: 300, x: -48 }}
       on:click={() => sidebar.open()}
     >
@@ -89,7 +89,7 @@
     </button>
   {/if}
  
-  <main class="flex-grow">
+  <main class="flex-grow flex justify-center items-center">
     <slot />
   </main>
 </div>
