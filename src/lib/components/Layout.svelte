@@ -72,13 +72,11 @@
   </div>
 
   <!-- sidebar resizer -->
-  {#if $sidebar}
-    <div
-      class="w-1 border-x border-white bg-ink-100 select-none cursor-col-resize"
-      on:mousedown={onSidebarResize}
-      transition:fade={{ duration: 300 }}
-    ></div>
-  {/if}
+  <div
+    class="{$sidebar ? "bg-ink-100 cursor-col-resize" : "bg-white cursor-auto"}
+      transition-[background-color] duration-400 w-1 border-x border-white select-none"
+    on:mousedown={$sidebar ? onSidebarResize : undefined}
+  ></div>
 
   <!-- show sidebar btn -->
   {#if !$sidebar}
