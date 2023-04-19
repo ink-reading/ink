@@ -53,17 +53,24 @@
       <section class="flex-grow overflow-y-auto">
         <slot name="side" />
       </section>
-      <nav class="flex justify-between px-2 pb-2">
-        <div class="flex">
-          <NavIcon to="/settings"><IconSettings /></NavIcon>
-          <NavIcon to="/stats"><IconBarChart /></NavIcon>  
-        </div>
-        <div class="h-9 invisible group-hover:visible p-2">
-          <button on:click={() => sidebar.close()}>
+      <div class="flex justify-between items-center px-2 pb-2">
+        <div class="flex items-center">
+          <div class="flex items-center gap-2 px-2 text-xs text-ink/50">
+            <span class="relative flex h-2.5 w-2.5 mx-1">
+              <span class="animate-ping absolute h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span class="relative rounded-full h-full w-full scale-75 bg-accent"></span>
+            </span>
+            <span class="group-hover:hidden">Fetching</span>
+          </div>
+          <button class="h-9 p-2 hidden group-hover:block" on:click={() => sidebar.close()}>
             <IconChevronsLeft />
           </button>
         </div>
-      </nav>
+        <nav class="flex">
+          <NavIcon to="/stats"><IconBarChart /></NavIcon>  
+          <NavIcon to="/settings"><IconSettings /></NavIcon>
+        </nav>
+      </div>
     </aside>
   </div>
 
