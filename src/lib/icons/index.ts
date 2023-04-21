@@ -15,3 +15,4 @@ export { default as IconCircle } from "./circle.svg?component";
 export { default as IconCoffee } from "./coffee.svg?component";
 export { default as IconStar } from "./star.svg?component";
 export { default as IconPlus } from "./plus.svg?component";
+export { default as IconSettings6 } from "./settings-6.svg?component";
