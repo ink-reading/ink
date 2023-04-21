@@ -1,11 +1,10 @@
+import type { IconComponent } from "$lib/types";
 import { IconUser, IconPalette, IconBookRead, IconRss, IconInbox, IconPodcast, IconBarChart, IconInfo, IconSettings6 } from "$lib/icons";
-import type { ComponentType, SvelteComponentTyped } from "svelte";
-import type { SVGAttributes } from "svelte/elements";
 
 export type Route = {
   id: string;
   name: string;
-  icon: ComponentType<SvelteComponentTyped<SVGAttributes<SVGSVGElement>>>;
+  icon: IconComponent;
   isDefault?: boolean;
 };
 
