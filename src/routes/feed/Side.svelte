@@ -10,7 +10,7 @@
   <button><IconPlus width="20" height="20" /></button>
 </div>
 
-<div class="flex flex-col gap-1">
+<div class="flex flex-col gap-0.5">
   <SmartFolder id="today" name="Today"><IconCoffee /></SmartFolder>
   <SmartFolder id="unread" name="Unread"><IconCircle /></SmartFolder>
   <SmartFolder id="starred" name="Starred"><IconStar /></SmartFolder>

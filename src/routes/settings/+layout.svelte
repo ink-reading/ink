@@ -10,7 +10,7 @@
     <div class="font-bold px-2 pt-1 pb-3">
       <span>Settings</span>
     </div>
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-0.5">
       {#each settings as {id, name, icon, isDefault} (id)}
         {@const Icon = icon}
         {@const active = $page.route.id?.endsWith(id) || ($page.route.id === "/settings" && isDefault)}
