@@ -16,10 +16,10 @@
         {@const active = $page.route.id?.endsWith(id) || ($page.route.id === "/settings" && isDefault)}
         <a
           href="/settings/{id}"
-          class="rounded p-1 flex items-center cursor-pointer
+          class="rounded px-2 py-1 flex items-center cursor-pointer
             {active ? "text-accent bg-accent-50" : "hover:bg-ink-50 "}"
         >
-          <div class="p-1 mx-1">
+          <div class="p-1 mr-2">
             <Icon width={16} height={16} />
           </div>
           <span>{name}</span>
