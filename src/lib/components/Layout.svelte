@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly, fade } from "svelte/transition";
   
-	import { IconBarChart, IconBookRead, IconChevronsLeft, IconChevronsright, IconCompass, IconInbox, IconPodcast, IconRss, IconSettings } from "$lib/icons";
+	import { IconBarChart, IconBookRead, IconChevronsLeft, IconChevronsRight, IconCompass, IconInbox, IconPodcast, IconRss, IconSettings } from "$lib/icons";
   
   import NavIcon from "$lib/components/NavIcon.svelte";
   
@@ -88,7 +88,7 @@
       in:fly={{ delay: 300, x: -48 }}
       on:click={() => sidebar.open()}
     >
-      <IconChevronsright />
+      <IconChevronsRight />
     </button>
   {/if}
  

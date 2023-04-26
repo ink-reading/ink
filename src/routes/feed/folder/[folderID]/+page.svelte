@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/stores";
 
-  $: feedID = $page.params.id;
+  $: folderID = $page.params.folderID;
 
 </script>
 
-{feedID}
+{folderID}

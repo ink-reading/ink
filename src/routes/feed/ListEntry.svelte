@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { IconMore } from "$lib/icons";
+  import { page } from "$app/stores";
+	import type { Feed } from "$lib/types/feed";
 
-  export let id: string;
-  export let name: string;
-  export let avatar: string;
-  export let unread: number;
-  export let active: boolean;
- 
+  export let feed: Feed;
+  
+  $: active = $page.params.feedID === feed.id;
+
+  const { id, name, avatar, unread } = feed;
+
 </script>
 
 <a href="/feed/{id}"

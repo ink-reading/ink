@@ -4,13 +4,19 @@
   import Layout from "$lib/components/Layout.svelte";
   import ListMetaEntry from "./ListMetaEntry.svelte";
   import ListEntry from "./ListEntry.svelte";
+  import ListFolder from "./ListFolder.svelte";
+	import type { ListItem } from "$lib/types/feed";
 
-  export let data;
+  export let data: {
+    meta: {
+      today: number;
+      unread: number;
+      starred: number;
+    };
+    feeds: ListItem[];
+  };
   
-  $: selected = $page.params.list;
-
 </script>
-
 
 <Layout>
   <!-- sidebar -->
@@ -21,16 +27,20 @@
     </div>
     <!-- meta list -->
     <div class="flex flex-col gap-0.5">
-      <ListMetaEntry id="today" name="Today" icon={IconCoffee} unread={data.meta.today} active={selected === "today"} />
-      <ListMetaEntry id="unread" name="Unread" icon={IconCircle} unread={data.meta.unread} active={selected === "unread"} />
-      <ListMetaEntry id="starred" name="Starred" icon={IconStar} unread={data.meta.starred} active={selected === "starred"} />
+      <ListMetaEntry id="today" name="Today" icon={IconCoffee} unread={data.meta.today} />
+      <ListMetaEntry id="unread" name="Unread" icon={IconCircle} unread={data.meta.unread} />
+      <ListMetaEntry id="starred" name="Starred" icon={IconStar} unread={data.meta.starred} />
     </div>
     <!-- spacer -->
     <div class="w-full h-0.5 my-2 bg-ink-50"></div>
     <!-- feed list -->
     <div class="flex flex-col gap-0.5 pb-8">
-      {#each data.feeds as feed (feed.id)}
-        <ListEntry {...feed} active={selected === feed.id} />
+      {#each data.feeds as item (item.id)}
+        {#if item.type === "folder"}
+          <ListFolder folder={item} />
+        {:else}
+          <ListEntry feed={item} />
+        {/if}
       {/each}
     </div>
   </div>

@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { IconMore } from "$lib/icons";
+  import { page } from "$app/stores";
 	import type { IconComponent } from "$lib/types";
 
   export let id: string;
   export let name: string;
   export let icon: IconComponent;
   export let unread: number;
-  export let active: boolean;
 
+  $: active = $page.params.feedID === id;
+  
   const Icon = icon;
 
 </script>
