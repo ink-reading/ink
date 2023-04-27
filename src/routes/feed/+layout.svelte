@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { IconCoffee, IconCircle, IconStar, IconPlus } from "$lib/icons";
+  import { IconCoffee, IconCircle, IconStar, IconPlus, IconBookmark } from "$lib/icons";
 	import type { Entry } from "$lib/types/feed";
   import Layout from "$lib/components/Layout.svelte";
   import ListEntryMeta from "./ListEntryMeta.svelte";
@@ -10,11 +10,12 @@
     meta: {
       today: number;
       unread: number;
-      starred: number;
+      later: number;
+      bookmark: number;
     };
     entries: Entry[];
   };
-  
+
 </script>
 
 <Layout>
@@ -26,9 +27,10 @@
     </div>
     <!-- meta list -->
     <div class="flex flex-col gap-0.5">
-      <ListEntryMeta id="today" name="Today" icon={IconCoffee} unread={data.meta.today} />
+      <ListEntryMeta id="today" name="Today" icon={IconStar} unread={data.meta.today} />
       <ListEntryMeta id="unread" name="Unread" icon={IconCircle} unread={data.meta.unread} />
-      <ListEntryMeta id="starred" name="Starred" icon={IconStar} unread={data.meta.starred} />
+      <ListEntryMeta id="later" name="Later" icon={IconCoffee} unread={data.meta.later} />
+      <ListEntryMeta id="bookmark" name="Bookmark" icon={IconBookmark} unread={data.meta.bookmark} />
     </div>
     <!-- spacer -->
     <div class="w-full h-0.5 my-2 bg-ink-50"></div>

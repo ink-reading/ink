@@ -3,7 +3,8 @@ export const load = async () => {
     meta: {
       today: 3,
       unread: 12,
-      starred: 65,
+      later: 65,
+      bookmark: 12,
     },
     entries: [
       { type: "feed", id: "001", name: "Aaaaaaa", avatar: "https://placehold.co/400", unread: 0 },

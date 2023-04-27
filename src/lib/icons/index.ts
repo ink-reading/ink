@@ -18,3 +18,6 @@ export { default as IconCoffee } from "./coffee.svg?component";
 export { default as IconStar } from "./star.svg?component";
 export { default as IconPlus } from "./plus.svg?component";
 export { default as IconSettings6 } from "./settings-6.svg?component";
+export { default as IconBookmark } from "./bookmark.svg?component";
+export { default as IconSun } from "./sun.svg?component";
+export { default as IconMoon } from "./moon.svg?component";
