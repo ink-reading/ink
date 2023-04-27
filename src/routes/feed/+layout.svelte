@@ -1,11 +1,10 @@
 <script lang="ts">
   import { IconCoffee, IconCircle, IconStar, IconPlus } from "$lib/icons";
-  import { page } from "$app/stores";
+	import type { Entry } from "$lib/types/feed";
   import Layout from "$lib/components/Layout.svelte";
-  import ListMetaEntry from "./ListMetaEntry.svelte";
-  import ListEntry from "./ListEntry.svelte";
-  import ListFolder from "./ListFolder.svelte";
-	import type { ListItem } from "$lib/types/feed";
+  import ListEntryMeta from "./ListEntryMeta.svelte";
+  import ListEntryFeed from "./ListEntryFeed.svelte";
+  import ListEntryFolder from "./ListEntryFolder.svelte";
 
   export let data: {
     meta: {
@@ -13,7 +12,7 @@
       unread: number;
       starred: number;
     };
-    feeds: ListItem[];
+    entries: Entry[];
   };
   
 </script>
@@ -27,24 +26,23 @@
     </div>
     <!-- meta list -->
     <div class="flex flex-col gap-0.5">
-      <ListMetaEntry id="today" name="Today" icon={IconCoffee} unread={data.meta.today} />
-      <ListMetaEntry id="unread" name="Unread" icon={IconCircle} unread={data.meta.unread} />
-      <ListMetaEntry id="starred" name="Starred" icon={IconStar} unread={data.meta.starred} />
+      <ListEntryMeta id="today" name="Today" icon={IconCoffee} unread={data.meta.today} />
+      <ListEntryMeta id="unread" name="Unread" icon={IconCircle} unread={data.meta.unread} />
+      <ListEntryMeta id="starred" name="Starred" icon={IconStar} unread={data.meta.starred} />
     </div>
     <!-- spacer -->
     <div class="w-full h-0.5 my-2 bg-ink-50"></div>
     <!-- feed list -->
-    <div class="flex flex-col gap-0.5 pb-8">
-      {#each data.feeds as item (item.id)}
-        {#if item.type === "folder"}
-          <ListFolder folder={item} />
+    <div class="flex flex-col gap-0.5 pb-16">
+      {#each data.entries as entry (entry.id)}
+        {#if entry.type === "folder"}
+          <ListEntryFolder folder={entry} />
         {:else}
-          <ListEntry feed={item} />
+          <ListEntryFeed feed={entry} />
         {/if}
       {/each}
     </div>
   </div>
-  
   <!-- main content -->
   <slot />
 </Layout>

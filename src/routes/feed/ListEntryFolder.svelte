@@ -3,7 +3,7 @@
 	import type { Folder } from "$lib/types/feed";
 	import { page } from "$app/stores";
 	import { slide } from "svelte/transition";
-	import ListEntry from "./ListEntry.svelte";
+	import ListEntryFeed from "./ListEntryFeed.svelte";
 
   export let folder: Folder;
 
@@ -37,9 +37,9 @@
 </a>
 
 {#if open}
-  <div class="pl-3 flex flex-col gap-0.5" transition:slide>
+  <div class="pl-0 flex flex-col gap-0.5" transition:slide>
     {#each folder.feeds as feed (feed.id)}
-      <ListEntry {feed} />
+      <ListEntryFeed {feed} />
     {/each}
   </div>
 {/if}

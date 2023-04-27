@@ -1,4 +1,4 @@
-export type ListItem = Feed | Folder;
+export type Entry = Feed | Folder;
 
 export type Feed = {
   type: "feed";

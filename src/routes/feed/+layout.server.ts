@@ -5,7 +5,7 @@ export const load = async () => {
       unread: 12,
       starred: 65,
     },
-    feeds: [
+    entries: [
       { type: "feed", id: "001", name: "Aaaaaaa", avatar: "https://placehold.co/400", unread: 0 },
       { type: "feed", id: "002", name: "Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", avatar: "https://placehold.co/400", unread: 11 },
       { type: "feed", id: "003", name: "CCC", avatar: "https://placehold.co/400", unread: 120 },
