@@ -1,3 +1,3 @@
-# ink - the reading app
+ink - the reading app
 
-> 🚧 wip
+> 🚧 work in progress...
