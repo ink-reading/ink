@@ -33,7 +33,7 @@
   <!-- sidebar -->
   <div
     bind:this={sidebarContainer}
-    class="h-full transition-[flex-basis] duration-400 overflow-hidden min-w-0"
+    class="shrink-0 h-full transition-[flex-basis] duration-400 overflow-hidden min-w-0"
     style:flex-basis={$sidebar ? $sideWith : "0px"}
   >
     <aside
@@ -92,7 +92,7 @@
     </button>
   {/if}
  
-  <main class="flex-grow flex justify-center items-center">
+  <main class="flex-grow overflow-y-auto">
     <slot />
   </main>
 </div>

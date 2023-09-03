@@ -15,3 +15,11 @@ export type Folder = {
   unread: number;
   feeds: Feed[]; 
 };
+
+export type Post = {
+  id: string;
+  title: string;
+  brief: string;
+  date: number;
+  author?: string;
+};
