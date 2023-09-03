@@ -1,4 +1,4 @@
-import type { ComponentType, SvelteComponentTyped } from "svelte";
+import type { ComponentType, SvelteComponent } from "svelte";
 import type { SVGAttributes } from "svelte/elements";
 
-export type IconComponent = ComponentType<SvelteComponentTyped<SVGAttributes<SVGSVGElement>>>;
+export type IconComponent = ComponentType<SvelteComponent<SVGAttributes<SVGSVGElement>>>;
