@@ -3,9 +3,7 @@
 </script>
 
 <Layout>
-  <div slot="side">
-    podcast list
-  </div>
-  
+  <div slot="side">podcast list</div>
+
   <h1>podcast</h1>
 </Layout>

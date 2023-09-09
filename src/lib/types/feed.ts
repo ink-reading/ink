@@ -13,7 +13,7 @@ export type Folder = {
   id: string;
   name: string;
   unread: number;
-  feeds: Feed[]; 
+  feeds: Feed[];
 };
 
 export type Post = {

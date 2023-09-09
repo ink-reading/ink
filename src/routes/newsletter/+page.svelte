@@ -3,9 +3,7 @@
 </script>
 
 <Layout>
-  <div slot="side">
-    newsletter list
-  </div>
-  
+  <div slot="side">newsletter list</div>
+
   <h1>newsletter</h1>
 </Layout>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { IconCoffee, IconCircle, IconStar, IconPlus, IconBookmark } from "$lib/icons";
-	import type { Entry } from "$lib/types/feed";
+  import type { Entry } from "$lib/types/feed";
   import Layout from "$lib/components/Layout.svelte";
   import ListEntryMeta from "./ListEntryMeta.svelte";
   import ListEntryFeed from "./ListEntryFeed.svelte";
@@ -15,7 +15,6 @@
     };
     entries: Entry[];
   };
-
 </script>
 
 <Layout>
@@ -30,7 +29,12 @@
       <ListEntryMeta id="today" name="Today" icon={IconStar} unread={data.meta.today} />
       <ListEntryMeta id="unread" name="Unread" icon={IconCircle} unread={data.meta.unread} />
       <ListEntryMeta id="later" name="Later" icon={IconCoffee} unread={data.meta.later} />
-      <ListEntryMeta id="bookmark" name="Bookmark" icon={IconBookmark} unread={data.meta.bookmark} />
+      <ListEntryMeta
+        id="bookmark"
+        name="Bookmark"
+        icon={IconBookmark}
+        unread={data.meta.bookmark}
+      />
     </div>
     <!-- spacer -->
     <div class="w-full h-0.5 my-2 bg-ink-50"></div>

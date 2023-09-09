@@ -11,13 +11,14 @@
       <span>Settings</span>
     </div>
     <div class="flex flex-col gap-0.5">
-      {#each settings as {id, name, icon, isDefault} (id)}
+      {#each settings as { id, name, icon, isDefault } (id)}
         {@const Icon = icon}
-        {@const active = $page.route.id?.endsWith(id) || ($page.route.id === "/settings" && isDefault)}
+        {@const active =
+          $page.route.id?.endsWith(id) || ($page.route.id === "/settings" && isDefault)}
         <a
           href="/settings/{id}"
           class="rounded px-2 py-1 flex items-center cursor-pointer
-            {active ? "text-accent bg-accent-50" : "hover:bg-ink-50 "}"
+            {active ? 'text-accent bg-accent-50' : 'hover:bg-ink-50 '}"
         >
           <div class="p-1 mr-2">
             <Icon width={16} height={16} />
@@ -25,10 +26,9 @@
           <span>{name}</span>
         </a>
       {/each}
-    </div>    
+    </div>
   </div>
-  
+
   <!-- main content -->
   <slot />
-
 </Layout>

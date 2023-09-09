@@ -1,10 +1,9 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  
+
   export let data;
 
   $: feedID = $page.params.feedID;
-
 </script>
 
 <div class="flex justify-center items-stretch p-4">
@@ -16,5 +15,5 @@
         <!-- <div>{post.brief}</div> -->
       </div>
     {/each}
-  </div>  
+  </div>
 </div>

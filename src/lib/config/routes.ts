@@ -1,5 +1,15 @@
 import type { IconComponent } from "$lib/types";
-import { IconUser, IconPalette, IconBookRead, IconRss, IconInbox, IconPodcast, IconBarChart, IconInfo, IconSettings6 } from "$lib/icons";
+import {
+  IconUser,
+  IconPalette,
+  IconBookRead,
+  IconRss,
+  IconInbox,
+  IconPodcast,
+  IconBarChart,
+  IconInfo,
+  IconSettings6,
+} from "$lib/icons";
 
 export type Route = {
   id: string;
