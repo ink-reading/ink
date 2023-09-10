@@ -28,7 +28,7 @@
       />
     </div>
     <!-- spacer -->
-    <div class="w-full h-0.5 my-2 bg-ink-50"></div>
+    <div class="w-full h-0.5 my-2 bg-ink-text/10"></div>
     <!-- feed list -->
     <div class="flex flex-col gap-0.5 pb-16">
       {#each data.entries as entry (entry.id)}

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly, slide } from "svelte/transition";
   import NavIcon from "./NavIcon.svelte";
-  // import ThemeToggle from "./ThemeToggle.svelte";
+  import ThemeToggle from "./ThemeToggle.svelte";
   import { sidebar, sideWidth } from "$lib/stores/layout";
   import { IconSettings, IconReadList } from "$lib/icons";
 
@@ -14,6 +14,7 @@
     ChevronsLeftIcon,
     ChevronsRightIcon,
     Construction,
+    BarChart2Icon,
   } from "lucide-svelte";
 
   $: isNavRoot = navRoots.has($page.route.id ?? "");
@@ -35,7 +36,7 @@
   on:mouseup={resizing ? stopResize : undefined}
 />
 
-<div class="flex h-screen w-full overflow-y-auto text-sm text-ink">
+<div class="flex h-screen w-full overflow-y-auto text-sm text-ink-text bg-ink-bg">
   <!-- sidebar -->
   {#if $sidebar}
     <div
@@ -60,18 +61,19 @@
         </section>
         <!-- sidebar bottom section -->
         <section class="hidden items-center justify-between px-2 pb-2 sm:flex">
-          <div class="flex items-center gap-2 px-2 text-xs text-ink/50">
+          <div class="flex items-center gap-2 px-2">
             <span class="relative mx-1 flex h-2.5 w-2.5">
-              <span class="absolute h-full w-full animate-ping rounded-full bg-accent opacity-75"
+              <span
+                class="absolute h-full w-full animate-ping rounded-full bg-ink-primary opacity-75"
               ></span>
-              <span class="relative h-full w-full scale-75 rounded-full bg-accent"></span>
+              <span class="relative h-full w-full scale-75 rounded-full bg-ink-primary"></span>
             </span>
           </div>
           <nav class="flex">
+            <NavIcon to="/stats"><BarChart2Icon size={20} /></NavIcon>
             <NavIcon to="/settings"><IconSettings /></NavIcon>
-            <!-- <ThemeToggle /> -->
-            <!-- <NavIcon to="/stats"><IconBarChart /></NavIcon> -->
-            <button class="p-2 hover:text-accent" on:click={() => sidebar.close()}>
+            <ThemeToggle />
+            <button class="p-2 hover:text-ink-primary" on:click={() => sidebar.close()}>
               <ChevronsLeftIcon size={20} />
             </button>
           </nav>
@@ -80,7 +82,7 @@
       <!-- sidebar resizer -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <div
-        class="hidden w-1 basis-1 cursor-col-resize select-none border border-white bg-ink-100 sm:block"
+        class="hidden w-1 basis-1 cursor-col-resize select-none border border-ink-bg bg-ink-text/20 sm:block"
         on:mousedown={startResize}
         role="separator"
       ></div>
@@ -89,7 +91,7 @@
 
   <!-- mobile nav bar -->
   <section
-    class="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-ink-50 bg-white py-2 shadow-sm sm:hidden"
+    class="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-ink-text/10 bg-white py-2 shadow-sm sm:hidden"
   >
     <NavIcon to="/digest"><SparklesIcon size={20} /></NavIcon>
     <NavIcon to="/later"><IconReadList /></NavIcon>
@@ -101,7 +103,7 @@
   <!-- show sidebar btn -->
   {#if !$sidebar}
     <button
-      class="fixed hidden sm:block bottom-2 left-2 p-2 hover:text-accent"
+      class="fixed hidden sm:block bottom-2 left-2 p-2 hover:text-ink-primary"
       in:fly={{ delay: 100, x: -48 }}
       on:click={() => sidebar.open()}
     >

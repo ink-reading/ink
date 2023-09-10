@@ -16,7 +16,7 @@
 <a
   href="/feed/folder/{id}"
   class="rounded px-2 py-1 flex items-center justify-between group/item
-    {active ? 'text-accent bg-accent-50' : 'hover:bg-ink-50 '}"
+    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/10 '}"
 >
   <button
     class="p-1 mr-2 rounded-full transition-transform {open ? 'rotate-90' : 'rotate-0'}"

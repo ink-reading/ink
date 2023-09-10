@@ -18,7 +18,7 @@
         <a
           href="/settings/{id}"
           class="rounded px-2 py-1 flex items-center cursor-pointer
-            {active ? 'text-accent bg-accent-50' : 'hover:bg-ink-50 '}"
+            {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/10 '}"
         >
           <div class="p-1 mr-2">
             <Icon width={16} height={16} />

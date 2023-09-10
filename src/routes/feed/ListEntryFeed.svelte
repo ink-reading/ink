@@ -13,7 +13,7 @@
 <a
   href="/feed/{id}"
   class="rounded px-2 py-1 flex items-center justify-between group/item
-    {active ? 'text-accent bg-accent-50' : 'hover:bg-ink-50 '}"
+    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/10 '}"
 >
   <img class="w-5 h-5 m-0.5 mr-2.5 rounded-sm" src={avatar} alt={`Avatar of ${name}`} />
   <span class="grow text-ellipsis overflow-hidden whitespace-nowrap">{name}</span>
