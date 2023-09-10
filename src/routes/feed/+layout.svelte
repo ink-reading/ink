@@ -1,20 +1,11 @@
 <script lang="ts">
   import { IconCoffee, IconCircle, IconStar, IconPlus, IconBookmark } from "$lib/icons";
-  import type { Entry } from "$lib/types/feed";
   import Layout from "$lib/components/Layout.svelte";
   import ListEntryMeta from "./ListEntryMeta.svelte";
   import ListEntryFeed from "./ListEntryFeed.svelte";
   import ListEntryFolder from "./ListEntryFolder.svelte";
 
-  export let data: {
-    meta: {
-      today: number;
-      unread: number;
-      later: number;
-      bookmark: number;
-    };
-    entries: Entry[];
-  };
+  export let data;
 </script>
 
 <Layout>

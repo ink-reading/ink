@@ -5,7 +5,7 @@
 
   export let feed: Feed;
 
-  $: active = $page.params.feedID === feed.id;
+  $: active = $page.params.feedId === feed.id;
 
   const { id, name, avatar, unread } = feed;
 </script>

@@ -3,7 +3,7 @@
 
   export let data;
 
-  $: feedID = $page.params.feedID;
+  $: feedId = $page.params.feedId;
 </script>
 
 <div class="flex justify-center items-stretch p-4">

@@ -7,7 +7,7 @@
 
   export let folder: Folder;
 
-  $: active = $page.params.folderID === folder.id;
+  $: active = $page.params.folderId === folder.id;
   $: open = false;
 
   const { id, name, unread } = folder;

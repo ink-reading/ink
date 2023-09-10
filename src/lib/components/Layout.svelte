@@ -101,7 +101,7 @@
   <!-- show sidebar btn -->
   {#if !$sidebar}
     <button
-      class="fixed bottom-2 left-2 p-2 hover:text-accent"
+      class="fixed hidden sm:block bottom-2 left-2 p-2 hover:text-accent"
       in:fly={{ delay: 100, x: -48 }}
       on:click={() => sidebar.open()}
     >
@@ -109,7 +109,7 @@
     </button>
   {/if}
 
-  <main class="{isNavRoot ? 'hidden' : 'block'} sm:block overflow-y-auto grow">
+  <main class="{isNavRoot ? 'hidden' : 'block'} sm:block overflow-y-auto grow sm:px-11">
     <slot />
   </main>
 </div>

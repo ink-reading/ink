@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
 
-  $: folderID = $page.params.folderID;
+  $: folderId = $page.params.folderId;
 </script>
 
-{folderID}
+{folderId}

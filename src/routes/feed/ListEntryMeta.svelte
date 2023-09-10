@@ -8,7 +8,7 @@
   export let icon: IconComponent;
   export let unread: number;
 
-  $: active = $page.params.feedID === id;
+  $: active = $page.params.feedId === id;
 
   const Icon = icon;
 </script>
