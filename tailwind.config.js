@@ -2,6 +2,9 @@
 export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
+    supports: {
+      firefox: "-moz-appearance:none",
+    },
     extend: {
       transitionDuration: {
         400: "400ms",

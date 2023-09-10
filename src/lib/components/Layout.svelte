@@ -36,7 +36,7 @@
   on:mouseup={resizing ? stopResize : undefined}
 />
 
-<div class="flex h-screen w-full overflow-y-auto text-sm text-ink-text bg-ink-bg">
+<div class="flex h-screen w-full overflow-y-hidden text-sm text-ink-text bg-ink-bg">
   <!-- sidebar -->
   {#if $sidebar}
     <div
@@ -56,7 +56,7 @@
             <NavIcon to="/newsletter"><InboxIcon size={20} /></NavIcon>
           </div>
         </nav>
-        <section class="flex-grow overflow-y-auto overflow-x-hidden px-2 py-2.5 sm:py-0">
+        <section class="flex-grow scroll-aera overflow-x-hidden px-2 py-2.5 sm:py-0">
           <slot name="side" />
         </section>
         <!-- sidebar bottom section -->
@@ -91,7 +91,7 @@
 
   <!-- mobile nav bar -->
   <section
-    class="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-ink-text/10 bg-white py-2 shadow-sm sm:hidden"
+    class="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-ink-text/10 bg-ink-bg py-2 shadow-sm sm:hidden"
   >
     <NavIcon to="/digest"><SparklesIcon size={20} /></NavIcon>
     <NavIcon to="/later"><IconReadList /></NavIcon>
