@@ -19,7 +19,7 @@
 
 <Layout>
   <!-- sidebar -->
-  <div slot="side" class="px-2">
+  <div slot="side">
     <div class="font-bold flex justify-between items-center px-2 pt-1 pb-3">
       <span>Feed</span>
       <button><IconPlus width="20" height="20" /></button>

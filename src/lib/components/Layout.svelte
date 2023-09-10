@@ -1,109 +1,115 @@
 <script lang="ts">
-  import { fly, fade } from "svelte/transition";
+  import { fly, slide } from "svelte/transition";
+  import NavIcon from "./NavIcon.svelte";
+  // import ThemeToggle from "./ThemeToggle.svelte";
+  import { sidebar, sideWidth } from "$lib/stores/layout";
+  import { IconSettings, IconReadList } from "$lib/icons";
 
+  import { page } from "$app/stores";
+  import { navRoots } from "$lib/config/routes";
   import {
-    IconBarChart,
-    IconBookRead,
-    IconChevronsLeft,
-    IconChevronsRight,
-    IconCompass,
-    IconInbox,
-    IconPodcast,
-    IconRss,
-    IconSettings,
-  } from "$lib/icons";
+    SparklesIcon,
+    RssIcon,
+    InboxIcon,
+    ChevronsLeftIcon,
+    ChevronsRightIcon,
+    Construction,
+  } from "lucide-svelte";
 
-  import NavIcon from "$lib/components/NavIcon.svelte";
+  $: isNavRoot = navRoots.has($page.route.id ?? "");
 
-  import { sidebar, sideWith } from "$lib/stores/layout";
+  const MIN_SIDE_WIDTH = 200;
+  const MAX_SIDE_WIDTH = 640;
 
-  let sidebarContainer: HTMLDivElement | null = null;
-
-  const onSidebarResize = () => {
-    sidebarContainer!.style.transitionProperty = "none";
-    document.addEventListener("mousemove", resize);
-    document.addEventListener("mouseup", stopResize);
+  let resizing = false;
+  const onResize = (ev: MouseEvent) => {
+    if (ev.x <= MIN_SIDE_WIDTH || ev.x >= MAX_SIDE_WIDTH) return;
+    $sideWidth = ev.x;
   };
-
-  const resize = (evt: MouseEvent) => {
-    if (evt.x < 200 || evt.x > 700) return;
-    $sideWith = `${evt.x}px`;
-  };
-
-  const stopResize = () => {
-    sidebarContainer!.style.transitionProperty = "flex-basis";
-    document.removeEventListener("mousemove", resize);
-    document.removeEventListener("mouseup", stopResize);
-  };
+  const startResize = () => (resizing = true);
+  const stopResize = () => (resizing = false);
 </script>
 
-<div class="w-full h-screen flex text-ink text-sm overflow-y-auto">
-  <!-- sidebar -->
-  <div
-    bind:this={sidebarContainer}
-    class="shrink-0 h-full transition-[flex-basis] duration-400 overflow-hidden min-w-0"
-    style:flex-basis={$sidebar ? $sideWith : "0px"}
-  >
-    <aside
-      class="h-full flex flex-col justify-between overflow-y-auto group"
-      style:min-width={$sideWith}
-      style:width={$sideWith}
-    >
-      <nav class="flex justify-between p-2 pb-1">
-        <NavIcon to="/"><IconCompass /></NavIcon>
-        <div class="flex">
-          <NavIcon to="/read-list"><IconBookRead /></NavIcon>
-          <NavIcon to="/feed"><IconRss /></NavIcon>
-          <NavIcon to="/newsletter"><IconInbox /></NavIcon>
-          <NavIcon to="/podcast"><IconPodcast /></NavIcon>
-        </div>
-      </nav>
-      <section class="flex-grow overflow-y-auto">
-        <slot name="side" />
-      </section>
-      <div class="flex justify-between items-center px-2 pb-2">
-        <div class="flex items-center">
-          <div class="flex items-center gap-2 px-2 text-xs text-ink/50">
-            <span class="relative flex h-2.5 w-2.5 mx-1">
-              <span class="animate-ping absolute h-full w-full rounded-full bg-accent opacity-75"
-              ></span>
-              <span class="relative rounded-full h-full w-full scale-75 bg-accent"></span>
-            </span>
-            <span class="group-hover:hidden">Fetching</span>
-          </div>
-          <button class="h-9 p-2 hidden group-hover:block" on:click={() => sidebar.close()}>
-            <IconChevronsLeft />
-          </button>
-        </div>
-        <nav class="flex">
-          <NavIcon to="/stats"><IconBarChart /></NavIcon>
-          <NavIcon to="/settings"><IconSettings /></NavIcon>
-        </nav>
-      </div>
-    </aside>
-  </div>
+<svelte:document
+  on:mousemove={resizing ? onResize : undefined}
+  on:mouseup={resizing ? stopResize : undefined}
+/>
 
-  <!-- sidebar resizer -->
-  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-  <div
-    class="{$sidebar ? 'bg-ink-100 cursor-col-resize' : 'bg-white cursor-auto'}
-      transition-[background-color] duration-400 w-1 border-x border-white select-none"
-    on:mousedown={$sidebar ? onSidebarResize : undefined}
-    role="separator"
-  ></div>
+<div class="flex h-screen w-full overflow-y-auto text-sm text-ink">
+  <!-- sidebar -->
+  {#if $sidebar}
+    <div
+      transition:slide={{ axis: "x", duration: 200 }}
+      style:--side-width={$sideWidth + "px"}
+      class="{isNavRoot
+        ? 'flex'
+        : 'hidden'} sm:flex h-full w-full overflow-hidden sm:w-[--side-width] shrink-0"
+    >
+      <aside class="flex h-full grow flex-col justify-between overflow-y-auto overflow-x-hidden">
+        <nav class="hidden justify-between p-2 pb-1 sm:flex">
+          <NavIcon to="/"><Construction size={20} /></NavIcon>
+          <div class="flex">
+            <NavIcon to="/digest"><SparklesIcon size={20} /></NavIcon>
+            <NavIcon to="/later"><IconReadList /></NavIcon>
+            <NavIcon to="/feed"><RssIcon size={20} /></NavIcon>
+            <NavIcon to="/newsletter"><InboxIcon size={20} /></NavIcon>
+          </div>
+        </nav>
+        <section class="flex-grow overflow-y-auto overflow-x-hidden px-2 py-2.5 sm:py-0">
+          <slot name="side" />
+        </section>
+        <!-- sidebar bottom section -->
+        <section class="hidden items-center justify-between px-2 pb-2 sm:flex">
+          <div class="flex items-center gap-2 px-2 text-xs text-ink/50">
+            <span class="relative mx-1 flex h-2.5 w-2.5">
+              <span class="absolute h-full w-full animate-ping rounded-full bg-accent opacity-75"
+              ></span>
+              <span class="relative h-full w-full scale-75 rounded-full bg-accent"></span>
+            </span>
+          </div>
+          <nav class="flex">
+            <NavIcon to="/settings"><IconSettings /></NavIcon>
+            <!-- <ThemeToggle /> -->
+            <!-- <NavIcon to="/stats"><IconBarChart /></NavIcon> -->
+            <button class="p-2 hover:text-accent" on:click={() => sidebar.close()}>
+              <ChevronsLeftIcon size={20} />
+            </button>
+          </nav>
+        </section>
+      </aside>
+      <!-- sidebar resizer -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <div
+        class="hidden w-1 basis-1 cursor-col-resize select-none border border-white bg-ink-100 sm:block"
+        on:mousedown={startResize}
+        role="separator"
+      ></div>
+    </div>
+  {/if}
+
+  <!-- mobile nav bar -->
+  <section
+    class="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-ink-50 bg-white py-2 shadow-sm sm:hidden"
+  >
+    <NavIcon to="/digest"><SparklesIcon size={20} /></NavIcon>
+    <NavIcon to="/later"><IconReadList /></NavIcon>
+    <NavIcon to="/feed"><RssIcon size={20} /></NavIcon>
+    <NavIcon to="/newsletter"><InboxIcon size={20} /></NavIcon>
+    <NavIcon to="/settings"><IconSettings /></NavIcon>
+  </section>
 
   <!-- show sidebar btn -->
   {#if !$sidebar}
     <button
-      class="p-2 fixed left-2 bottom-2"
-      in:fly={{ delay: 300, x: -48 }}
+      class="fixed bottom-2 left-2 p-2 hover:text-accent"
+      in:fly={{ delay: 100, x: -48 }}
       on:click={() => sidebar.open()}
     >
-      <IconChevronsRight />
+      <ChevronsRightIcon size={20} />
     </button>
   {/if}
 
-  <main class="flex-grow overflow-y-auto">
+  <main class="{isNavRoot ? 'hidden' : 'block'} sm:block overflow-y-auto grow">
     <slot />
   </main>
 </div>

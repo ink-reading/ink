@@ -3,7 +3,7 @@
 </script>
 
 <Layout>
-  <div slot="side">read-it-later list</div>
+  <div slot="side">Read Later</div>
 
   <h1>read it later</h1>
 </Layout>

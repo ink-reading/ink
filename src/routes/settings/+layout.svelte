@@ -6,7 +6,7 @@
 
 <Layout>
   <!-- sidebar -->
-  <div slot="side" class="px-2">
+  <div slot="side">
     <div class="font-bold px-2 pt-1 pb-3">
       <span>Settings</span>
     </div>
