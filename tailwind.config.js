@@ -16,6 +16,9 @@ export default {
           bg: "rgb(var(--color-bg) / <alpha-value>)",
         },
       },
+      spacing: {
+        "safe-area-b": "calc(env(safe-area-inset-bottom, 28px) - 8px)",
+      },
     },
   },
   plugins: [],

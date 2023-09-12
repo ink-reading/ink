@@ -91,13 +91,15 @@
 
   <!-- mobile nav bar -->
   <section
-    class="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-ink-text/10 bg-ink-bg py-2 shadow-sm sm:hidden"
+    class="fixed bottom-0 left-0 right-0 border-t border-ink-text/10 bg-ink-bg pb-safe-area-b shadow-sm sm:hidden"
   >
-    <NavIcon to="/digest"><SparklesIcon size={20} /></NavIcon>
-    <NavIcon to="/later"><IconReadList /></NavIcon>
-    <NavIcon to="/feed"><RssIcon size={20} /></NavIcon>
-    <NavIcon to="/newsletter"><InboxIcon size={20} /></NavIcon>
-    <NavIcon to="/settings"><IconSettings /></NavIcon>
+    <div class="py-2 flex items-center justify-around">
+      <NavIcon to="/digest"><SparklesIcon size={20} /></NavIcon>
+      <NavIcon to="/later"><IconReadList /></NavIcon>
+      <NavIcon to="/feed"><RssIcon size={20} /></NavIcon>
+      <NavIcon to="/newsletter"><InboxIcon size={20} /></NavIcon>
+      <NavIcon to="/settings"><IconSettings /></NavIcon>
+    </div>
   </section>
 
   <!-- show sidebar btn -->
