@@ -17,36 +17,36 @@
 
 @layer utilities {
   @media (hover: hover) {
-    .scroll-aera {
+    .scroll-area {
       padding-right: 0px !important;
       overflow-y: scroll;
       scrollbar-width: thin;
       scrollbar-color: rgb(var(--color-text) / 75) rgb(var(--color-bg) / 1);
     }
     @supports (-moz-appearance: none) {
-      .scroll-aera {
+      .scroll-area {
         overflow-y: auto;
         padding-right: 8px;
       }
     }
-    .scroll-aera::-webkit-scrollbar {
+    .scroll-area::-webkit-scrollbar {
       width: 8px;
       height: 8px;
     }
-    .scroll-aera::-webkit-scrollbar-track {
+    .scroll-area::-webkit-scrollbar-track {
       background: rgb(var(--color-bg) / 1);
     }
-    .scroll-aera::-webkit-scrollbar-thumb {
+    .scroll-area::-webkit-scrollbar-thumb {
       background: transparent;
       border-radius: 4px;
       background-clip: padding-box;
       border: 2px solid transparent;
     }
-    .scroll-aera:hover::-webkit-scrollbar-thumb {
+    .scroll-area:hover::-webkit-scrollbar-thumb {
       background: rgb(var(--color-text) / 0.5);
       background-clip: padding-box;
     }
-    .scroll-aera::-webkit-scrollbar-thumb:hover {
+    .scroll-area::-webkit-scrollbar-thumb:hover {
       background: rgb(var(--color-text) / 0.75);
       background-clip: padding-box;
     }

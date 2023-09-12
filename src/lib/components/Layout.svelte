@@ -56,7 +56,7 @@
             <NavIcon to="/newsletter"><InboxIcon size={20} /></NavIcon>
           </div>
         </nav>
-        <section class="flex-grow scroll-aera overflow-x-hidden px-2 py-2.5 sm:py-0">
+        <section class="flex-grow scroll-area overflow-x-hidden px-2 py-2.5 sm:py-0">
           <slot name="side" />
         </section>
         <!-- sidebar bottom section -->
