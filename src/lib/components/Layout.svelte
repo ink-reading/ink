@@ -36,7 +36,7 @@
   on:mouseup={resizing ? stopResize : undefined}
 />
 
-<div class="flex h-screen w-full overflow-y-hidden text-sm text-ink-text bg-ink-bg">
+<div class="flex sm:h-screen w-full sm:overflow-y-hidden text-sm text-ink-text bg-ink-bg">
   <!-- sidebar -->
   {#if $sidebar}
     <div
