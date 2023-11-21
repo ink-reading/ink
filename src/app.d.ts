@@ -17,7 +17,7 @@ declare global {
     type Auth = import("$lib/server/auth").Auth;
     type DatabaseUserAttributes = {
       username: string;
-      role: "ADMIN" | "USER";
+      role: "admin" | "user";
     };
     type DatabaseSessionAttributes = Record<string, never>;
   }

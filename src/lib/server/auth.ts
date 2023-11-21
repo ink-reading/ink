@@ -1,15 +1,18 @@
 import { lucia } from "lucia";
 import { sveltekit } from "lucia/middleware";
-import { prisma } from "@lucia-auth/adapter-prisma";
+import { postgres as postgresAdapter } from "@lucia-auth/adapter-postgresql";
 import { dev } from "$app/environment";
 
-import db from "./db";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { queryClient } from "./db";
 
 export const auth = lucia({
   env: dev ? "DEV" : "PROD",
   middleware: sveltekit(),
-  adapter: prisma(db),
+  adapter: postgresAdapter(queryClient, {
+    user: "auth_user",
+    key: "user_key",
+    session: "user_session",
+  }),
 
   getUserAttributes: data => {
     return {
@@ -23,6 +26,11 @@ export type Auth = typeof auth;
 
 export async function createAdminAccount() {
   try {
+    const adminUsers = await queryClient`select * from auth_user where username = 'admin'`;
+    if (adminUsers.length > 0) {
+      // Admin account already exists
+      return;
+    }
     await auth.createUser({
       key: {
         providerId: "username",
@@ -31,14 +39,10 @@ export async function createAdminAccount() {
       },
       attributes: {
         username: "admin",
-        role: "ADMIN",
+        role: "admin",
       },
     });
   } catch (err) {
-    if (err instanceof PrismaClientKnownRequestError && err.code === "P2002") {
-      console.log("Admin account already exists, skipping...");
-      return;
-    }
     console.error("Failed to create admin account: \n", err);
     process.exit(1);
   }

@@ -6,7 +6,7 @@ export const load = async ({ locals }) => {
   return {
     currentUser: {
       ...session.user,
-      isAdmin: session.user.role === "ADMIN",
+      isAdmin: session.user.role === "admin",
     },
   };
 };
