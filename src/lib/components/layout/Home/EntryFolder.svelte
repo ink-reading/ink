@@ -1,32 +1,33 @@
 <script lang="ts">
-  import { IconMore, IconChevronRight } from "$lib/icons";
+  import { IconMore, IconChevronRight } from "$lib/assets/icons";
   import type { Folder } from "$lib/types/feed";
   import { page } from "$app/stores";
   import { slide } from "svelte/transition";
-  import ListEntryFeed from "./ListEntryFeed.svelte";
+  import EntryItem from "./EntryItem.svelte";
+  import { ChevronRightIcon } from "lucide-svelte";
 
   export let folder: Folder;
 
   $: active = $page.params.folderId === folder.id;
-  $: open = false;
+  $: open = true;
 
   const { id, name, unread } = folder;
 </script>
 
 <a
   href="/feed/folder/{id}"
-  class="rounded px-2 py-1 flex items-center justify-between group/item
-    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/10 '}"
+  class="font-medium sm:font-normal rounded-lg sm:rounded px-2 py-1.5 flex items-center justify-between group/item
+    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/5 '}"
 >
   <button
-    class="p-1 mr-2 rounded-full transition-transform {open ? 'rotate-90' : 'rotate-0'}"
+    class="p-1 sm:p-0.5 mr-2.5 rounded-full transition-transform {open ? 'rotate-90' : 'rotate-0'}"
     on:click|preventDefault|stopPropagation={() => (open = !open)}
   >
-    <IconChevronRight />
+    <ChevronRightIcon size={16} />
   </button>
   <span class="grow text-ellipsis overflow-hidden whitespace-nowrap">{name}</span>
   {#if unread !== 0}
-    <span class="px-1.5 text-xs">
+    <span class="px-1.5 text-base sm:text-xs">
       {unread}
     </span>
   {/if}
@@ -41,8 +42,8 @@
 
 {#if open}
   <div class="pl-0 flex flex-col gap-0.5" transition:slide>
-    {#each folder.feeds as feed (feed.id)}
-      <ListEntryFeed {feed} />
+    {#each folder.items as item (item.id)}
+      <EntryItem {item} />
     {/each}
   </div>
 {/if}

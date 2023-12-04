@@ -1,9 +1,8 @@
 <script lang="ts">
-  import Layout from "$lib/components/Layout.svelte";
+  import Home from "$lib/components/layout/Home/index.svelte";
+  export let data;
 </script>
 
-<Layout>
-  <div slot="side">daily digest</div>
-
-  <h1>digest</h1>
-</Layout>
+<div class="sm:hidden">
+  <Home listing={data.listing} />
+</div>

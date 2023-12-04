@@ -8,7 +8,7 @@ import {
   IconBarChart,
   IconInfo,
   IconSettings6,
-} from "$lib/icons";
+} from "$lib/assets/icons";
 
 export type Route = {
   id: string;
@@ -27,5 +27,3 @@ export const settings: Route[] = [
   { id: "stats", name: "Stats", icon: IconBarChart },
   { id: "about", name: "About", icon: IconInfo },
 ];
-
-export const navRoots = new Set(["/", "/list", "/feed", "/newsletter", "/stats", "/settings"]);

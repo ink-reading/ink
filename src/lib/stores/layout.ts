@@ -13,4 +13,4 @@ function createSidebar() {
 
 export const sidebar = createSidebar();
 
-export const sideWidth = writable(350);
+export const sideWidth = writable(330);

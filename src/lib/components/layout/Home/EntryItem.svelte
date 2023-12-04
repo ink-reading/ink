@@ -1,24 +1,28 @@
 <script lang="ts">
-  import { IconMore } from "$lib/icons";
+  import { IconMore } from "$lib/assets/icons";
   import { page } from "$app/stores";
   import type { Feed } from "$lib/types/feed";
 
-  export let feed: Feed;
+  export let item: Feed;
 
-  $: active = $page.params.feedId === feed.id;
+  $: active = $page.params.feedId === item.id;
 
-  const { id, name, avatar, unread } = feed;
+  const { id, name, pic, unread } = item;
 </script>
 
 <a
   href="/feed/{id}"
-  class="rounded px-2 py-1 flex items-center justify-between group/item
-    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/10 '}"
+  class="font-medium sm:font-normal rounded-lg sm:rounded px-2 py-1.5 flex items-center justify-between group/item
+    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/5 '}"
 >
-  <img class="w-5 h-5 m-0.5 mr-2.5 rounded-sm" src={avatar} alt={`Avatar of ${name}`} />
+  <img
+    class="w-6 h-6 sm:w-5 sm:h-5 mr-2.5 rounded sm:rounded-sm"
+    src={pic}
+    alt={`Avatar of ${name}`}
+  />
   <span class="grow text-ellipsis overflow-hidden whitespace-nowrap">{name}</span>
   {#if unread !== 0}
-    <span class="px-1.5 text-xs">
+    <span class="px-1.5 text-base sm:text-xs">
       {unread}
     </span>
   {/if}

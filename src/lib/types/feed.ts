@@ -4,7 +4,7 @@ export type Feed = {
   type: "feed";
   id: string;
   name: string;
-  avatar: string;
+  pic: string;
   unread: number;
 };
 
@@ -13,7 +13,7 @@ export type Folder = {
   id: string;
   name: string;
   unread: number;
-  feeds: Feed[];
+  items: Feed[];
 };
 
 export type Post = {

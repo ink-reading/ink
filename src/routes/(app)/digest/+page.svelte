@@ -1,9 +1,7 @@
-<script lang="ts">
-  import Layout from "$lib/components/Layout.svelte";
+<script>
+  import TopNav from "$lib/components/layout/TopNav.svelte";
 </script>
 
-<Layout>
-  <div slot="side">Daily digest</div>
+<TopNav>digest actions...</TopNav>
 
-  <h1>Daily digest</h1>
-</Layout>
+Daily digest
