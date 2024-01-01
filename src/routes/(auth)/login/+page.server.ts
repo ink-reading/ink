@@ -7,7 +7,7 @@ import type { Actions } from "./$types";
 export const load = async ({ locals }) => {
   const session = await locals.auth.validate();
   if (session) {
-    throw redirect(302, "/");
+    redirect(302, "/");
   }
   return {};
 };
@@ -47,6 +47,6 @@ export const actions = {
         message: "An unknown error occurred",
       });
     }
-    throw redirect(302, "/");
+    redirect(302, "/");
   },
 } satisfies Actions;

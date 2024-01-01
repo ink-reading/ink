@@ -2,7 +2,10 @@ import { redirect } from "@sveltejs/kit";
 
 export const load = async ({ locals }) => {
   const session = await locals.auth.validate();
-  if (!session) throw redirect(302, "/login");
+  if (!session) {
+    redirect(302, "/login");
+    return;
+  }
   return {
     currentUser: {
       ...session.user,
