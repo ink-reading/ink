@@ -18,13 +18,14 @@
     Settings2Icon,
     SunIcon,
   } from "lucide-svelte";
-  import Indicator from "../Indicator.svelte";
+  import Indicator from "./Indicator.svelte";
   import { sidebar } from "$lib/stores/layout";
   import ListItem from "./ListItem.svelte";
   import SourceBtn from "./SourceBtn.svelte";
   import EntryFolder from "./EntryFolder.svelte";
   import EntryItem from "./EntryItem.svelte";
   import { goto } from "$app/navigation";
+  import { IconPlus } from "$lib/assets/icons";
 
   export let listing: any;
 
@@ -36,18 +37,18 @@
 
 <nav class="min-h-screen sm:flex sm:h-screen sm:flex-col sm:justify-between overscroll-y-contain">
   <!-- pc top bar -->
-  <section class="hidden justify-between px-3 py-2.5 sm:flex">
+  <section class="hidden justify-between px-3.5 py-3 sm:flex mb-1">
     <!-- ink logo -->
-    <a class="p-1 hover:text-ink-primary" class:text-ink-primary={true} href="/">
+    <a class="p-0.5 hover:text-ink-primary" class:text-ink-primary={true} href="/">
       <ConstructionIcon size={iconSizeLg} />
     </a>
     <!-- top action buttons -->
     <div class="flex items-center gap-2">
-      <button class="p-1.5">
-        <SearchIcon size={iconSizeLg - 4} />
+      <button class="p-1 hover:text-ink-primary">
+        <SearchIcon size={iconSizeBase} />
       </button>
-      <button class="p-1">
-        <PlusIcon size={iconSizeLg} />
+      <button class="p-1 hover:text-ink-primary">
+        <IconPlus width={iconSizeBase} height={iconSizeBase} />
       </button>
     </div>
   </section>
@@ -63,7 +64,7 @@
   </section>
 
   <!-- listing section -->
-  <section class="scroll-area-r-3 px-3 sm:grow sm:px-2">
+  <section class="scroll-area-r-2 px-3 sm:grow sm:px-2">
     <!-- mobile search bar -->
     <section class="flex flex-col pb-3 pt-1 sm:hidden">
       <div class="flex items-center gap-2.5 rounded-lg bg-ink-text/5 px-2 py-1 text-ink-text/40">
@@ -93,10 +94,10 @@
       </ListItem>
     </div>
     <!-- spacer -->
-    <div class="mb-2 mt-1 h-0.5 w-full rounded-full bg-ink-text/5"></div>
+    <div class="my-2 h-0.5 w-full rounded-full bg-ink-text/5"></div>
     <!-- source switcher -->
     <div
-      class="sticky top-12 z-20 flex w-full items-center justify-between gap-1.5 bg-ink-bg pb-1.5 sm:top-0"
+      class="sticky top-12 z-20 flex w-full items-center justify-between gap-1.5 bg-ink-bg pb-2 sm:top-0"
     >
       <SourceBtn>
         <RssIcon size={iconSizeBase} />
@@ -127,19 +128,19 @@
   </section>
 
   <!-- bottom bar -->
-  <section class="hidden px-3 py-2.5 sm:flex sm:items-center sm:justify-between">
+  <section class="hidden px-3.5 py-3 sm:flex sm:items-center sm:justify-between">
     <Indicator />
     <!-- bottom action buttons -->
     <div class="flex gap-2">
       <button
-        class="p-1.5 hover:text-ink-primary"
+        class="p-1 hover:text-ink-primary"
         on:click={() => {
           /* TODO */
         }}
       >
-        <Settings2Icon size={iconSizeLg - 4} />
+        <Settings2Icon size={iconSizeBase} />
       </button>
-      <button class="p-1 hover:text-ink-primary" on:click={() => sidebar.close()}>
+      <button class="p-0.5 hover:text-ink-primary" on:click={() => sidebar.close()}>
         <ChevronsLeftIcon size={iconSizeLg} />
       </button>
     </div>

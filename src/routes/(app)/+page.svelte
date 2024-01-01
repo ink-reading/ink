@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Home from "$lib/components/layout/Home/index.svelte";
+  import Home from "$lib/components/biz/Home/Home.svelte";
   export let data;
 </script>
 

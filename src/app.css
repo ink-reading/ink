@@ -6,7 +6,7 @@
   :root {
     --color-primary: 234 108 97;
     /* --color-text: 115 115 115; */
-    --color-text: 0 0 8;
+    --color-text: 33 33 33;
     --color-bg: 255 255 255;
   }
   :root.dark {
@@ -25,45 +25,61 @@
 
 @layer utilities {
   @media (hover: hover) {
-    .scroll-area-r-3 {
+    .scroll-area-r-2 {
       padding-right: 0rem !important; /* 0px */
       overflow-y: scroll;
       scrollbar-width: thin;
       scrollbar-color: rgb(var(--color-text) / 75) rgb(var(--color-bg) / 1);
     }
     @supports (-moz-appearance: none) {
-      .scroll-area-r-3 {
+      .scroll-area-r-2 {
         overflow-y: auto;
         padding-right: 0.5rem; /* 8px */
       }
     }
-    .scroll-area-r-3::-webkit-scrollbar {
+    .scroll-area-r-2::-webkit-scrollbar {
       width: 0.5rem; /* 8px */
       height: 0.5rem; /* 8px */
       background-color: transparent;
     }
-    .scroll-area-r-3::-webkit-scrollbar-track {
+    .scroll-area-r-2::-webkit-scrollbar-track {
       background: rgb(var(--color-bg) / 1);
     }
-    .scroll-area-r-3::-webkit-scrollbar-thumb {
+    .scroll-area-r-2::-webkit-scrollbar-thumb {
       background: transparent;
       border-radius: 0.25rem; /* 4px */
       background-clip: padding-box;
       border: 0.125rem solid transparent; /* 2px */
     }
-    .scroll-area-r-3:hover::-webkit-scrollbar-thumb {
+    .scroll-area-r-2:hover::-webkit-scrollbar-thumb {
       background: rgb(var(--color-text) / 0.25);
       background-clip: padding-box;
     }
-    .scroll-area-r-3::-webkit-scrollbar-thumb:hover {
+    .scroll-area-r-2::-webkit-scrollbar-thumb:hover {
       background: rgb(var(--color-text) / 0.5);
       background-clip: padding-box;
     }
+  }
+
+  .truncate-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .truncate-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 }
 
 @media screen and (max-width: 639.9px) {
   svg.lucide-icon {
-    transform: scale(1.25);
+    /* transform: scale(1.25); */
   }
 }

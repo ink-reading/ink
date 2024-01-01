@@ -1,9 +1,8 @@
 <script lang="ts">
   import { sidebar, sideWidth } from "$lib/stores/layout";
   import { fly } from "svelte/transition";
-  import Home from "./Home/index.svelte";
-  import { ChevronLeftIcon, ChevronsRightIcon } from "lucide-svelte";
-  import { goto } from "$app/navigation";
+  import Home from "./Home/Home.svelte";
+  import { ChevronsRightIcon } from "lucide-svelte";
 
   export let listing: any;
 
@@ -37,7 +36,7 @@
   <!-- sidebar -->
   <aside
     bind:this={asideEl}
-    class="hidden overflow-hidden duration-200 sm:block sm:h-screen"
+    class="hidden shrink-0 overflow-hidden duration-200 sm:block sm:h-screen"
     style:width={`${$sidebar ? $sideWidth : 0}px`}
   >
     <!-- inner wrapper -->
@@ -58,7 +57,7 @@
   <!-- show sidebar btn -->
   {#if !$sidebar}
     <button
-      class="fixed bottom-2.5 left-3 hidden p-1 hover:text-ink-primary sm:block"
+      class="fixed bottom-1.5 left-1.5 hidden p-2 hover:text-ink-primary sm:block"
       in:fly={{ duration: 200, delay: 100, x: -48 }}
       on:click={() => sidebar.open()}
     >
@@ -68,6 +67,8 @@
 
   <!-- main content -->
   <main class="sm:h-screen sm:grow sm:overflow-y-auto">
-    <slot />
+    <div class="mx-auto max-w-7xl">
+      <slot />
+    </div>
   </main>
 </div>

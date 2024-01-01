@@ -1,7 +1,5 @@
 <script>
-  import { goto } from "$app/navigation";
-  import Layout from "$lib/components/layout/Layout.svelte";
-  import { ChevronLeftIcon } from "lucide-svelte";
+  import Layout from "$lib/components/biz/Layout.svelte";
   export let data;
 </script>
 

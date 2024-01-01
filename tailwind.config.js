@@ -20,6 +20,7 @@ export default {
         },
       },
       spacing: {
+        18: "4.5rem",
         "safe-area-b": "calc(env(safe-area-inset-bottom, 28px) - 8px)",
       },
     },

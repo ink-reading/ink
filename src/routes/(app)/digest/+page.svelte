@@ -1,5 +1,5 @@
 <script>
-  import TopNav from "$lib/components/layout/TopNav.svelte";
+  import TopNav from "$lib/components/biz/List/TopNav.svelte";
 </script>
 
 <TopNav>digest actions...</TopNav>

@@ -41,7 +41,7 @@
 </a>
 
 {#if open}
-  <div class="pl-0 flex flex-col gap-0.5" transition:slide>
+  <div class="flex flex-col gap-0.5" transition:slide={{ duration: 150 }}>
     {#each folder.items as item (item.id)}
       <EntryItem {item} />
     {/each}
