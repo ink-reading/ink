@@ -14,6 +14,7 @@
     RssIcon,
   } from "lucide-svelte";
 
+  export let id: string;
   export let title: string;
   export let brief: string;
   export let origin: string;
@@ -23,9 +24,10 @@
   export let pic: string | undefined;
 </script>
 
-<div
+<a
   class="group relative flex w-full items-center gap-4 overflow-hidden rounded-md px-2 py-3 after:absolute after:bottom-0 after:left-2 after:right-2
   after:h-px after:bg-ink-text/5 hover:bg-ink-text/5 active:bg-ink-text/5 sm:mx-0 sm:px-6 sm:py-3 sm:after:left-6 sm:after:right-6"
+  href="/read/{id}"
 >
   <!-- pic (logo/avatar) -->
   {#if pic}
@@ -92,4 +94,4 @@
       <MoreHorizontalIcon size={16} />
     </div>
   </div>
-</div>
+</a>

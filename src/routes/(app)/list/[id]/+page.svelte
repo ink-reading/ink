@@ -11,8 +11,9 @@
 <TopNav />
 
 <section class="px-3 py-4 flex flex-col sm:px-12 overflow-hidden">
-  {#each new Array(50) as item}
+  {#each new Array(50) as item, idx}
     <PostEntryCard
+      id={String(idx)}
       title={randomSentence([5, 16])}
       brief={randomSentence([30, 100])}
       origin={randomSentence(2)}
