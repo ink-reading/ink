@@ -1,76 +1,86 @@
 <script>
   import { goto } from "$app/navigation";
+  import Icon from "$lib/components/unit/Icon.svelte";
+  import { sidebar } from "$lib/stores/layout";
   import {
-    CalendarClockIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
     CircleSlashIcon,
     Clock4Icon,
     LayoutListIcon,
     ListFilterIcon,
-    MenuIcon,
     MoreHorizontalIcon,
     MoreVerticalIcon,
+    PanelRightIcon,
     SaladIcon,
     SunIcon,
   } from "lucide-svelte";
-
-  const iconSize = 16;
+  import { fly } from "svelte/transition";
 </script>
 
 <div
-  class="-shadow-sm sticky top-0 z-30 flex w-full items-center justify-between px-4 sm:px-18 py-2.5 sm:py-3 bg-background"
+  class="sticky top-0 z-30 flex w-full items-center justify-between bg-background px-3 py-2.5 sm:px-18"
 >
+  <!-- sidebar open button -->
+  {#if !$sidebar}
+    <button
+      class="fixed left-3 top-2.5 hidden rounded p-1.5 hover:bg-roam sm:block"
+      in:fly={{ duration: 200, delay: 100, x: -48 }}
+      on:click={() => sidebar.open()}
+    >
+      <Icon which={PanelRightIcon} />
+    </button>
+  {/if}
   <!-- mobile back button -->
-  <button class="sm:hidden p-1" on:click={() => goto("/")}>
-    <ChevronLeftIcon size={20} />
+  <button class="py-1 pl-0 pr-2 sm:hidden" on:click={() => goto("/")}>
+    <Icon which={ChevronLeftIcon} sz="md" adjust={1.15} />
   </button>
   <!-- list icon & name -->
   <div class="group flex cursor-pointer items-center text-base font-medium">
-    <div class="p-0.5 sm:pl-0 scale-90 sm:scale-100">
-      <SunIcon size={20} />
+    <div class="scale-90 p-1 sm:scale-100 sm:pl-0">
+      <Icon which={SunIcon} sz="md" />
     </div>
     <span class="pl-2 pr-1.5">Today</span>
-    <div class="hidden sm:block invisible group-hover:visible">
-      <ChevronRightIcon size={iconSize} />
+    <div class="invisible hidden group-hover:visible sm:block">
+      <Icon which={MoreVerticalIcon} />
     </div>
   </div>
 
   <!-- mobile right menu -->
-  <button class="sm:hidden p-1">
-    <MoreHorizontalIcon size={20} />
+  <button class="p-1 sm:hidden">
+    <Icon which={MoreHorizontalIcon} sz="md" />
   </button>
   <!-- list actions -->
-  <div class="hidden sm:flex items-center gap-4">
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
-      <div class="p-1">
-        <CircleSlashIcon size={iconSize} />
-      </div>
-      <span>Unread</span>
+  <div class="hidden items-center gap-1 sm:flex">
+    <div
+      class="flex cursor-pointer items-center gap-1 rounded px-1.5 lg:px-2 py-1.5 lg:py-1 hover:bg-roam"
+    >
+      <Icon which={CircleSlashIcon} />
+      <span class="hidden lg:block">Unread</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
-      <div class="p-1">
-        <SaladIcon size={iconSize} />
-      </div>
-      <span>Source</span>
+    <div
+      class="flex cursor-pointer items-center gap-1 rounded px-1.5 lg:px-2 py-1.5 lg:py-1 hover:bg-roam"
+    >
+      <Icon which={SaladIcon} />
+      <span class="hidden lg:block">Source</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
-      <div class="p-1">
-        <ListFilterIcon size={iconSize} />
-      </div>
-      <span>Filter</span>
+    <div
+      class="flex cursor-pointer items-center gap-1 rounded px-1.5 lg:px-2 py-1.5 lg:py-1 hover:bg-roam"
+    >
+      <Icon which={ListFilterIcon} />
+      <span class="hidden lg:block">Filter</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
-      <div class="p-1">
-        <Clock4Icon size={iconSize} />
-      </div>
-      <span>Newest</span>
+    <div
+      class="flex cursor-pointer items-center gap-1 rounded px-1.5 lg:px-2 py-1.5 lg:py-1 hover:bg-roam"
+    >
+      <Icon which={Clock4Icon} />
+      <span class="hidden lg:block">Newest</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
-      <div class="p-1">
-        <LayoutListIcon size={iconSize} />
-      </div>
-      <span>List</span>
+    <div
+      class="flex cursor-pointer items-center gap-1 rounded px-1.5 lg:px-2 py-1.5 lg:py-1 hover:bg-roam"
+    >
+      <Icon which={LayoutListIcon} />
+      <span class="hidden lg:block">List</span>
     </div>
   </div>
 </div>

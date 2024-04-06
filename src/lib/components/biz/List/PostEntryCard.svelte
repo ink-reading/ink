@@ -42,10 +42,10 @@
       <!-- title -->
       <h1 class="truncate-3 text-base font-medium capitalize">{title}</h1>
       <!-- brief -->
-      <p class="truncate text-prose-pale">{brief}</p>
+      <p class="truncate hidden sm:block text-prose-pale">{brief}</p>
     </div>
     <!-- metadata -->
-    <div class="flex items-center gap-4 text-sm text-prose-weak">
+    <div class="flex items-center gap-3 sm:gap-4 text-sm text-prose-weak">
       <!-- type -->
       <div class="text-primary">
         {#if ty === "rss"}
@@ -59,7 +59,7 @@
         {/if}
       </div>
       <!-- origin -->
-      <div class="flex shrink items-center gap-2 overflow-hidden">
+      <div class="flex shrink items-center gap-1.5 sm:gap-2 overflow-hidden">
         <img class="h-4 w-4 rounded-sm" src="https://placehold.co/400" alt="avatar" />
         <span class="truncate first-letter:capitalize">{origin}</span>
       </div>

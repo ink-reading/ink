@@ -24,7 +24,8 @@
     </span>
   {/if}
   <button
-    class="w-0 shrink-0 overflow-hidden {unread !== 0 && 'transition-[width] duration-100'}
+    class="w-0 shrink-0 overflow-hidden text-prose-pale hover:text-prose
+    {unread !== 0 && 'transition-[width] duration-75'}
     focus-visible:w-5 focus-visible:p-0.5 group-hover/item:w-5
     group-hover/item:p-0.5 group-focus-visible/item:w-5 group-focus-visible/item:p-0.5"
   >

@@ -1,8 +1,6 @@
 <script lang="ts">
   import { sidebar, sideWidth } from "$lib/stores/layout";
-  import { fly } from "svelte/transition";
   import Home from "./Home/Home.svelte";
-  import { ChevronsRightIcon } from "lucide-svelte";
 
   export let listing: any;
 
@@ -51,20 +49,9 @@
     on:mousedown={startResize}
   ></div>
 
-  <!-- show sidebar btn -->
-  {#if !$sidebar}
-    <button
-      class="fixed bottom-1.5 left-1.5 hidden p-2 hover:text-primary sm:block"
-      in:fly={{ duration: 200, delay: 100, x: -48 }}
-      on:click={() => sidebar.open()}
-    >
-      <ChevronsRightIcon size={20} />
-    </button>
-  {/if}
-
   <!-- main content -->
   <main class="sm:h-screen sm:grow sm:overflow-y-auto">
-    <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-6xl">
       <slot />
     </div>
   </main>

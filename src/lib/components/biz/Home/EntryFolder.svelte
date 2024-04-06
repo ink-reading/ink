@@ -32,7 +32,8 @@
     </span>
   {/if}
   <button
-    class="shrink-0 w-0 overflow-hidden {unread !== 0 && 'transition-[width] duration-100'}
+    class="shrink-0 w-0 overflow-hidden text-prose-pale hover:text-prose
+    {unread !== 0 && 'transition-[width] duration-100'}
     group-hover/item:w-5 group-focus-visible/item:w-5 focus-visible:w-5
     group-hover/item:p-0.5 group-focus-visible/item:p-0.5 focus-visible:p-0.5"
   >
