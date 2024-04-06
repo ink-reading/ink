@@ -24,25 +24,23 @@
   import { IconReadList } from "$lib/assets/icons";
 </script>
 
-<div
-  class="sticky top-0 z-30 flex w-full items-center justify-between bg-ink-bg px-4 sm:px-4 py-2.5 sm:py-3"
->
+<div class="sticky top-0 z-30 flex w-full items-center justify-between px-4 sm:px-4 py-2.5 sm:py-3">
   <!-- back button -->
   <div class="flex gap-2">
     <button
-      class="p-2 rounded-full hover:text-ink-primary cursor-pointer"
+      class="p-2 rounded-full hover:text-primary cursor-pointer"
       on:click={() => goto("/list/today")}
     >
       <Icon which={ArrowLeftIcon} />
     </button>
     <section class="flex gap-1">
-      <!-- <button class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <!-- <button class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={ChevronUpIcon} />
       </button>
-      <button class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <button class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={ChevronDownIcon} />
       </button> -->
-      <button class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <button class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={AlignLeftIcon} />
       </button>
     </section>
@@ -56,33 +54,33 @@
   <!-- post actions -->
   <div class="hidden sm:flex items-center gap-8">
     <section class="flex gap-1 items-center">
-      <div class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={CheckIcon} />
       </div>
-      <div class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={CoffeeIcon} />
       </div>
-      <div class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={BookmarkIcon} />
       </div>
-      <div class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={ArchiveIcon} />
       </div>
     </section>
     <section class="flex items-center gap-1">
-      <!-- <div class="p-1.5 rounded-full hover:text-ink-primary cursor-pointer">
+      <!-- <div class="p-1.5 rounded-full hover:text-primary cursor-pointer">
         <Icon which={Wand2Icon} />
       </div> -->
-      <!-- <div class="p-1.5 rounded-full hover:text-ink-primary cursor-pointer">
+      <!-- <div class="p-1.5 rounded-full hover:text-primary cursor-pointer">
         <Icon which={ViewIcon} />
       </div>
-      <div class="p-1.5 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-1.5 rounded-full hover:text-primary cursor-pointer">
         <Icon which={CompassIcon} />
       </div> -->
-      <div class="p-1.5 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-1.5 rounded-full hover:text-primary cursor-pointer">
         <Icon which={PenLineIcon} />
       </div>
-      <div class="p-2 rounded-full hover:text-ink-primary cursor-pointer">
+      <div class="p-2 rounded-full hover:text-primary cursor-pointer">
         <Icon which={MoreVerticalIcon} />
       </div>
     </section>

@@ -16,7 +16,7 @@
       <a
         href="/settings/{id}"
         class="rounded px-2 py-1 flex items-center cursor-pointer
-            {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/10 '}"
+            {active ? 'text-primary bg-roam-primary' : 'hover:bg-roam '}"
       >
         <div class="p-1 mr-2">
           <Icon width={16} height={16} />

@@ -2,6 +2,7 @@
   import { IconMore } from "$lib/assets/icons";
   import { page } from "$app/stores";
   import type { Feed } from "$lib/types/feed";
+  import { randomSentence } from "$lib/utils/mock";
 
   export let item: Feed;
 
@@ -13,14 +14,16 @@
 <a
   href="/feed/{id}"
   class="font-medium sm:font-normal rounded-lg sm:rounded px-2 py-1.5 flex items-center justify-between group/item
-    {active ? 'text-ink-primary bg-ink-primary/10' : 'hover:bg-ink-text/5 '}"
+    {active ? 'text-primary bg-roam-primary' : 'hover:bg-roam '}"
 >
   <img
     class="w-6 h-6 sm:w-5 sm:h-5 mr-2.5 rounded sm:rounded-sm"
     src={pic}
     alt={`Avatar of ${name}`}
   />
-  <span class="grow text-ellipsis overflow-hidden whitespace-nowrap">{name}</span>
+  <span class="grow text-ellipsis overflow-hidden whitespace-nowrap capitalize"
+    >{randomSentence([1, 3])}</span
+  >
   {#if unread !== 0}
     <span class="px-1.5 text-base sm:text-xs">
       {unread}

@@ -19,7 +19,7 @@
 </script>
 
 <div
-  class="-shadow-sm sticky top-0 z-30 flex w-full items-center justify-between bg-ink-bg px-4 sm:px-18 py-2.5 sm:py-3"
+  class="-shadow-sm sticky top-0 z-30 flex w-full items-center justify-between px-4 sm:px-18 py-2.5 sm:py-3 bg-background"
 >
   <!-- mobile back button -->
   <button class="sm:hidden p-1" on:click={() => goto("/")}>
@@ -42,31 +42,31 @@
   </button>
   <!-- list actions -->
   <div class="hidden sm:flex items-center gap-4">
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-ink-primary">
+    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
       <div class="p-1">
         <CircleSlashIcon size={iconSize} />
       </div>
       <span>Unread</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-ink-primary">
+    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
       <div class="p-1">
         <SaladIcon size={iconSize} />
       </div>
       <span>Source</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-ink-primary">
+    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
       <div class="p-1">
         <ListFilterIcon size={iconSize} />
       </div>
       <span>Filter</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-ink-primary">
+    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
       <div class="p-1">
         <Clock4Icon size={iconSize} />
       </div>
       <span>Newest</span>
     </div>
-    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-ink-primary">
+    <div class="flex cursor-pointer items-center gap-1 rounded hover:text-primary">
       <div class="p-1">
         <LayoutListIcon size={iconSize} />
       </div>

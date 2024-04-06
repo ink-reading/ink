@@ -13,8 +13,8 @@
 <a
   {href}
   class="group/item flex items-center justify-between rounded-lg px-2 py-1.5 font-medium
-    active:bg-ink-text/5 sm:rounded sm:font-normal
-    {active ? 'bg-ink-primary/10 text-ink-primary' : 'hover:bg-ink-text/5 '}"
+    active:bg-roam sm:rounded sm:font-normal
+    {active ? 'bg-roam-primary text-primary' : 'hover:bg-roam '}"
 >
   <div class="mr-2.5 p-0.5"><slot /></div>
   <span class="grow overflow-hidden text-ellipsis whitespace-nowrap">{name}</span>

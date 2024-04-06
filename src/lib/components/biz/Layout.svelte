@@ -29,10 +29,7 @@
   on:mouseup={resizing ? stopResize : undefined}
 />
 
-<div
-  id="app"
-  class="w-full bg-ink-bg text-lg text-ink-text sm:flex sm:text-sm select-none sm:select-auto"
->
+<div id="app" class="w-full text-lg text-prose sm:flex sm:text-sm select-none sm:select-auto">
   <!-- sidebar -->
   <aside
     bind:this={asideEl}
@@ -48,8 +45,8 @@
   <!-- sidebar resizer -->
   <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
   <div
-    class="transition-all hidden cursor-col-resize select-none border border-ink-bg bg-ink-text/10 duration-200 sm:block
-    {$sidebar ? 'basis-1' : 'basis-0'}"
+    class="transition-all hidden cursor-col-resize select-none border-[0.5px] border-background bg-aux-line duration-200 sm:block
+    {$sidebar ? 'basis-[2px]' : 'basis-0'}"
     role="separator"
     on:mousedown={startResize}
   ></div>
@@ -57,7 +54,7 @@
   <!-- show sidebar btn -->
   {#if !$sidebar}
     <button
-      class="fixed bottom-1.5 left-1.5 hidden p-2 hover:text-ink-primary sm:block"
+      class="fixed bottom-1.5 left-1.5 hidden p-2 hover:text-primary sm:block"
       in:fly={{ duration: 200, delay: 100, x: -48 }}
       on:click={() => sidebar.open()}
     >

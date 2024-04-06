@@ -4,7 +4,7 @@
 </script>
 
 <main class="flex h-screen items-center justify-between text-ink-text">
-  <div class="h-full w-2/5 bg-ink-primary"></div>
+  <div class="h-full w-2/5 bg-primary"></div>
   <div class="flex grow items-center justify-center">
     <div class="w-96">
       <form method="post" use:enhance>
@@ -14,7 +14,7 @@
             name="username"
             id="username"
             placeholder="Enter your username"
-            class="w-full rounded border-2 border-ink-text/10 px-4 py-2 outline-none ring-ink-primary ring-offset-0 placeholder:text-ink-text/30 focus-visible:border-ink-primary"
+            class="w-full rounded border-2 border-roam px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-ink-text/30 focus-visible:border-primary"
           />
         </div>
 
@@ -25,7 +25,7 @@
             name="password"
             id="password"
             placeholder="Enter your password"
-            class="w-full rounded border-2 border-ink-text/10 px-4 py-2 outline-none ring-ink-primary ring-offset-0 placeholder:text-ink-text/30 focus-visible:border-ink-primary"
+            class="w-full rounded border-2 border-roam px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-ink-text/30 focus-visible:border-primary"
           />
         </div>
 
@@ -35,7 +35,7 @@
           {/if}
         </div>
 
-        <button class="w-full rounded bg-ink-primary p-2 text-white">Login</button>
+        <button class="w-full rounded bg-primary p-2 text-white">Login</button>
       </form>
     </div>
   </div>

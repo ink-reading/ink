@@ -4,19 +4,33 @@
 
 @layer base {
   :root {
-    --color-primary: 234 108 97;
-    /* --color-text: 115 115 115; */
-    --color-text: 33 33 33;
-    --color-bg: 255 255 255;
+    --color-primary: #935050;
+    --color-primary-accent: #3451b2;
+    --color-background: #ffffff;
+
+    --color-prose: #282a30;
+    --color-prose-weak: #3c4149;
+    --color-prose-pale: #979ca2;
+    --color-prose-accent: #1b1b1b;
+
+    --color-roam: #f1f1f1a0;
+    --color-roam-primary: #93505020;
+    --color-roam-weak: #f1f1f180;
+    --color-roam-accent: #f1f1f1;
+
+    --color-aux-danger: #d91431;
+    --color-aux-danger-accent: #b51029;
+    --color-aux-line: #f1f1f1;
+    --color-aux-tip: #141414;
+    --color-aux-scrollbar: #f1f1f1;
   }
   :root.dark {
-    --color-primary: 234 108 97;
-    --color-text: 145 151 165;
-    --color-bg: 32 33 36;
+    /* TODO */
   }
   :root {
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: none;
+    @apply bg-background;
   }
   a {
     -webkit-touch-callout: none;
@@ -28,8 +42,8 @@
     .scroll-area-r-2 {
       padding-right: 0rem !important; /* 0px */
       overflow-y: scroll;
-      scrollbar-width: thin;
-      scrollbar-color: rgb(var(--color-text) / 75) rgb(var(--color-bg) / 1);
+      /* scrollbar-width: thin; */
+      /* scrollbar-color: var(--color-aux-scrollbar) var(--color-background); */
     }
     @supports (-moz-appearance: none) {
       .scroll-area-r-2 {
@@ -43,7 +57,7 @@
       background-color: transparent;
     }
     .scroll-area-r-2::-webkit-scrollbar-track {
-      background: rgb(var(--color-bg) / 1);
+      background: var(--color-background);
     }
     .scroll-area-r-2::-webkit-scrollbar-thumb {
       background: transparent;
@@ -52,11 +66,11 @@
       border: 0.125rem solid transparent; /* 2px */
     }
     .scroll-area-r-2:hover::-webkit-scrollbar-thumb {
-      background: rgb(var(--color-text) / 0.25);
+      background: var(--color-aux-scrollbar);
       background-clip: padding-box;
     }
     .scroll-area-r-2::-webkit-scrollbar-thumb:hover {
-      background: rgb(var(--color-text) / 0.5);
+      background: var(--color-text-scrollbar);
       background-clip: padding-box;
     }
   }

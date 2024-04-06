@@ -26,7 +26,7 @@
 
 <a
   class="group relative flex w-full items-center gap-4 overflow-hidden rounded-md px-2 py-3 after:absolute after:bottom-0 after:left-2 after:right-2
-  after:h-px after:bg-ink-text/5 hover:bg-ink-text/5 active:bg-ink-text/5 sm:mx-0 sm:px-6 sm:py-3 sm:after:left-6 sm:after:right-6"
+  after:h-px after:bg-roam hover:bg-roam active:bg-roam sm:mx-0 sm:px-6 sm:py-3 sm:after:left-6 sm:after:right-6"
   href="/read/{id}"
 >
   <!-- pic (logo/avatar) -->
@@ -40,14 +40,14 @@
   >
     <div class="flex flex-col w-full gap-3">
       <!-- title -->
-      <h1 class="truncate-3 text-base font-medium first-letter:capitalize">{title}</h1>
+      <h1 class="truncate-3 text-base font-medium capitalize">{title}</h1>
       <!-- brief -->
-      <p class="truncate text-ink-text/50">{brief}</p>
+      <p class="truncate text-prose-pale">{brief}</p>
     </div>
     <!-- metadata -->
-    <div class="flex items-center gap-1.5 text-sm text-ink-text/75">
+    <div class="flex items-center gap-4 text-sm text-prose-weak">
       <!-- type -->
-      <div class="text-ink-primary">
+      <div class="text-primary">
         {#if ty === "rss"}
           <Icon which={RssIcon} />
         {:else if ty === "newsletter"}
@@ -58,39 +58,27 @@
           <Icon which={IconReadList} />
         {/if}
       </div>
-      <span class="text-ink-text/10"><DotIcon size={16} /></span>
       <!-- origin -->
       <div class="flex shrink items-center gap-2 overflow-hidden">
         <img class="h-4 w-4 rounded-sm" src="https://placehold.co/400" alt="avatar" />
         <span class="truncate first-letter:capitalize">{origin}</span>
       </div>
-      <div class="grow flex items-center">
-        <span class="text-ink-text/10"><DotIcon size={16} /></span>
-        <!-- date -->
-        <span>{date}</span>
-        <!-- reading progress -->
-        {#if readed}
-          <span class="text-ink-text/10"><DotIcon size={16} /></span>
-          <span class="flex items-center gap-1 text-sm text-green-600">
-            <span>100%</span>
-            <CheckIcon size={16} />
-          </span>
-        {/if}
-      </div>
+      <!-- date -->
+      <div class="group-hover:invisible text-prose-pale ml-auto">{date}</div>
     </div>
   </div>
   <!-- actions -->
   <div class="invisible absolute bottom-2 right-4 flex gap-0 group-hover:visible">
-    <div class="cursor-pointer rounded-full p-2 hover:bg-ink-text/5 hover:text-ink-text">
+    <div class="cursor-pointer rounded-full p-2 hover:bg-roam hover:text-ink-text">
       <BookmarkIcon size={16} />
     </div>
-    <div class="cursor-pointer rounded-full p-2 hover:bg-ink-text/5 hover:text-ink-text">
+    <div class="cursor-pointer rounded-full p-2 hover:bg-roam hover:text-ink-text">
       <CoffeeIcon size={16} />
     </div>
-    <div class="cursor-pointer rounded-full p-2 hover:bg-ink-text/5 hover:text-ink-text">
+    <div class="cursor-pointer rounded-full p-2 hover:bg-roam hover:text-ink-text">
       <ArchiveIcon size={16} />
     </div>
-    <div class="cursor-pointer rounded-full p-2 hover:bg-ink-text/5 hover:text-ink-text">
+    <div class="cursor-pointer rounded-full p-2 hover:bg-roam hover:text-ink-text">
       <MoreHorizontalIcon size={16} />
     </div>
   </div>
