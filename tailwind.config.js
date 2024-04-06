@@ -21,6 +21,7 @@ export default {
         "prose-weak": "var(--color-prose-weak)",
         "prose-pale": "var(--color-prose-pale)",
         roam: "var(--color-roam)",
+        "roam-overlay": "var(--color-roam-overlay)",
         "roam-primary": "var(--color-roam-primary)",
         "roam-weak": "var(--color-roam-weak)",
         "roam-accent": "var(--color-roam-accent)",

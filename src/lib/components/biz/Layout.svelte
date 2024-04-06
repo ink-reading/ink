@@ -27,7 +27,7 @@
   on:mouseup={resizing ? stopResize : undefined}
 />
 
-<div id="app" class="w-full text-lg text-prose sm:flex sm:text-sm select-none sm:select-auto">
+<div id="app" class="w-full text-base text-prose sm:flex sm:text-sm select-none sm:select-auto">
   <!-- sidebar -->
   <aside
     bind:this={asideEl}

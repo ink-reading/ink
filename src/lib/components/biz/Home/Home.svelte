@@ -40,7 +40,7 @@
 
 <nav class="min-h-screen sm:flex sm:h-screen sm:flex-col sm:justify-between overscroll-y-contain">
   <!-- pc top bar -->
-  <section class="hidden justify-between px-2.5 py-2.5 sm:flex mb-1">
+  <section class="hidden justify-between px-3 py-2.5 sm:flex">
     <!-- ink logo -->
     <a class="p-1.5 hover:text-primary" class:text-primary={true} href="/">
       <ConstructionIcon size={16} />

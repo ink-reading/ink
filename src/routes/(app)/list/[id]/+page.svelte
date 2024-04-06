@@ -18,7 +18,7 @@
       brief={randomSentence([30, 100])}
       origin={randomSentence(2)}
       ty={randomTy()}
-      date={randomDateStr("M/DD")}
+      date={randomDateStr("M-DD")}
       readed={Math.random() > 0.5}
       pic={Math.random() > 0.8 ? "https://placehold.co/400" : undefined}
     />
