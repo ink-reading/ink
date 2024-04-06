@@ -22,34 +22,55 @@
     --color-aux-danger-accent: #b51029;
     --color-aux-line: #f1f1f1;
     --color-aux-tip: #141414;
-    --color-aux-scrollbar: #f1f1f1;
+    --color-aux-scrollbar: #bfbfbfbf;
+    --color-aux-scrollbar-accent: #bbbbbb;
   }
   :root.dark {
     /* TODO */
   }
+
   :root {
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: none;
     @apply bg-background;
   }
+
   a {
     -webkit-touch-callout: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem; /* 8px */
+    height: 0.5rem; /* 8px */
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-aux-scrollbar);
+    background-clip: padding-box;
+    border-radius: 0.25rem; /* 4px */
+    border: 0.125rem solid transparent; /* 2px */
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-aux-scrollbar-accent);
+    background-clip: padding-box;
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-aux-scrollbar) transparent;
+    }
   }
 }
 
 @layer utilities {
+  /* scrollbar */
   @media (hover: hover) {
     .scroll-area-r-2 {
       padding-right: 0rem !important; /* 0px */
       overflow-y: scroll;
-      /* scrollbar-width: thin; */
-      /* scrollbar-color: var(--color-aux-scrollbar) var(--color-background); */
-    }
-    @supports (-moz-appearance: none) {
-      .scroll-area-r-2 {
-        overflow-y: auto;
-        padding-right: 0.5rem; /* 8px */
-      }
     }
     .scroll-area-r-2::-webkit-scrollbar {
       width: 0.5rem; /* 8px */
@@ -57,12 +78,12 @@
       background-color: transparent;
     }
     .scroll-area-r-2::-webkit-scrollbar-track {
-      background: var(--color-background);
+      background: transparent;
     }
     .scroll-area-r-2::-webkit-scrollbar-thumb {
       background: transparent;
-      border-radius: 0.25rem; /* 4px */
       background-clip: padding-box;
+      border-radius: 0.25rem; /* 4px */
       border: 0.125rem solid transparent; /* 2px */
     }
     .scroll-area-r-2:hover::-webkit-scrollbar-thumb {
@@ -70,25 +91,30 @@
       background-clip: padding-box;
     }
     .scroll-area-r-2::-webkit-scrollbar-thumb:hover {
-      background: var(--color-text-scrollbar);
+      background: var(--color-aux-scrollbar-accent);
       background-clip: padding-box;
+    }
+    @supports not selector(::-webkit-scrollbar) {
+      .scroll-area-r-2 {
+        overflow-y: auto;
+        padding-right: 0.5rem; /* 8px */
+      }
     }
   }
 
-  .truncate-2 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
+  /* truncate */
+  .truncate-2,
   .truncate-3 {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+  .truncate-2 {
+    -webkit-line-clamp: 2;
+  }
+  .truncate-3 {
+    -webkit-line-clamp: 3;
   }
 }
 
