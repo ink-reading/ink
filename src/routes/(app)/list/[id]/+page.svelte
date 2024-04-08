@@ -20,7 +20,7 @@
       ty={randomTy()}
       date={randomDateStr("M-DD")}
       readed={Math.random() > 0.5}
-      pic={Math.random() > 0.8 ? "https://placehold.co/400" : undefined}
+      pic={Math.random() > 0.8 ? "https://placehold.co/400/444444/aaaaaa" : undefined}
     />
   {/each}
 </section>

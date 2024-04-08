@@ -62,7 +62,7 @@
       </div>
       <!-- origin -->
       <div class="flex shrink items-center gap-1.5 sm:gap-2 overflow-hidden py-1">
-        <img class="h-4 w-4 rounded-sm" src="https://placehold.co/400" alt="avatar" />
+        <img class="h-4 w-4 rounded-sm" src="https://placehold.co/400/444444/aaaaaa" alt="avatar" />
         <span class="truncate first-letter:capitalize">{origin}</span>
       </div>
       <!-- date -->

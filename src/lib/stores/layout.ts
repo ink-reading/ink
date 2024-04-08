@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-function createSidebar() {
+export const sidebar = (() => {
   const { subscribe, set, update } = writable(true);
 
   return {
@@ -9,8 +9,14 @@ function createSidebar() {
     close: () => set(false),
     toggle: () => update(open => !open),
   };
-}
-
-export const sidebar = createSidebar();
+})();
 
 export const sideWidth = writable(350);
+
+export const theme = (() => {
+  const { subscribe, update } = writable<"light" | "dark">("light");
+  return {
+    subscribe,
+    toggle: () => update(theme => (theme === "light" ? "dark" : "light")),
+  };
+})();

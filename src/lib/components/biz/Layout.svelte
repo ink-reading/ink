@@ -27,7 +27,7 @@
   on:mouseup={resizing ? stopResize : undefined}
 />
 
-<div id="app" class="w-full text-base text-prose sm:flex sm:text-sm select-none sm:select-auto">
+<div id="app" class="w-full sm:flex">
   <!-- sidebar -->
   <aside
     bind:this={asideEl}
@@ -43,7 +43,7 @@
   <!-- sidebar resizer -->
   <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
   <div
-    class="transition-all hidden cursor-col-resize select-none border-[0.5px] border-background bg-aux-line duration-200 sm:block
+    class="transition-[flex-basis] hidden cursor-col-resize select-none border-[0.5px] border-background bg-aux-line duration-200 sm:block
     {$sidebar ? 'basis-[2px]' : 'basis-0'}"
     role="separator"
     on:mousedown={startResize}

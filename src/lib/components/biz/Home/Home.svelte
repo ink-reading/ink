@@ -11,6 +11,7 @@
     HashIcon,
     InboxIcon,
     LibraryIcon,
+    MoonIcon,
     PanelLeft,
     PanelLeftIcon,
     PlusIcon,
@@ -24,7 +25,7 @@
     SunIcon,
   } from "lucide-svelte";
   import Indicator from "./Indicator.svelte";
-  import { sidebar } from "$lib/stores/layout";
+  import { sidebar, theme } from "$lib/stores/layout";
   import ListItem from "./ListItem.svelte";
   import SourceBtn from "./SourceBtn.svelte";
   import EntryFolder from "./EntryFolder.svelte";
@@ -32,10 +33,18 @@
   import { goto } from "$app/navigation";
   import { IconPlus, IconSettings } from "$lib/assets/icons";
   import Icon from "$lib/components/unit/Icon.svelte";
+  import { K_THEME } from "$lib/config/constants";
 
   export let listing: any;
 
   const { lists, entries } = listing;
+
+  const toggleTheme = () => {
+    const newTheme = $theme === "light" ? "dark" : "light";
+    localStorage?.setItem(K_THEME, newTheme);
+    document?.documentElement.classList.toggle("dark");
+    theme.toggle();
+  };
 </script>
 
 <nav class="min-h-screen sm:flex sm:h-screen sm:flex-col sm:justify-between overscroll-y-contain">
@@ -55,6 +64,9 @@
       </button>
       <button class="p-1.5 rounded hover:bg-roam">
         <Icon which={PlusSquareIcon} />
+      </button>
+      <button class="p-1.5 rounded hover:bg-roam" on:click={toggleTheme}>
+        <Icon which={$theme === "light" ? MoonIcon : SunIcon} />
       </button>
       <button class="p-1.5 rounded hover:bg-roam" on:click={() => sidebar.close()}>
         <Icon which={PanelLeftIcon} />
