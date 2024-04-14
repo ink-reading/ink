@@ -1,12 +1,12 @@
 <script lang="ts">
   import { IconMore } from "$lib/assets/icons";
-  import { page } from "$app/stores";
   import type { Feed } from "$lib/types/feed";
   import { randomSentence } from "$lib/utils/mock";
 
-  export let item: Feed;
+  let { item }: { item: Feed } = $props();
 
-  $: active = $page.params.feedId === item.id;
+  // const active = $derived($page.params.feedId === item.id);
+  const active = false;
 
   const { id, name, pic, unread } = item;
 </script>
@@ -24,14 +24,14 @@
   <span class="grow text-ellipsis overflow-hidden whitespace-nowrap capitalize"
     >{randomSentence([1, 3])}</span
   >
-  <button
+  <span
     class="shrink-0 w-0 overflow-hidden text-prose-pale hover:text-prose
     {unread !== 0 && 'transition-[width] duration-100'}
     group-hover/item:w-5 group-focus-visible/item:w-5 focus-visible:w-5
     group-hover/item:p-0.5 group-focus-visible/item:p-0.5 focus-visible:p-0.5"
   >
     <IconMore />
-  </button>
+  </span>
   {#if unread !== 0}
     <span class="px-1.5 text-base sm:text-xs">
       {unread}

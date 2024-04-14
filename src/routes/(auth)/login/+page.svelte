@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  export let form;
+  let { form } = $props();
 </script>
 
 <main class="flex h-screen items-center justify-center text-prose">
@@ -17,6 +17,7 @@
             name="username"
             id="username"
             placeholder="Username"
+            autocomplete="username"
             class="w-full rounded bg-roam px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-prose-pale focus-visible:border-primary"
           />
         </div>
@@ -28,6 +29,7 @@
             name="password"
             id="password"
             placeholder="Password"
+            autocomplete="current-password"
             class="w-full rounded bg-roam px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-prose-pale focus-visible:border-primary"
           />
         </div>

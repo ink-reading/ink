@@ -4,8 +4,6 @@
   import { randomDateStr, randomSentence, randomTy } from "$lib/utils/mock";
 
   import PostEntryCard from "$lib/components/biz/List/PostEntryCard.svelte";
-
-  $: id = $page.params.id;
 </script>
 
 <TopNav />

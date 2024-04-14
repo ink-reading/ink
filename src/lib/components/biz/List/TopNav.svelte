@@ -1,7 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
   import Icon from "$lib/components/unit/Icon.svelte";
-  import { sidebar } from "$lib/stores/layout";
+  import sidebar from "$lib/stores/layout/sidebar.svelte";
   import {
     ChevronLeftIcon,
     ChevronRightIcon,
@@ -22,17 +22,17 @@
   class="sticky top-0 z-30 flex w-full items-center justify-between bg-background px-3 py-2.5 sm:px-18"
 >
   <!-- sidebar open button -->
-  {#if !$sidebar}
+  {#if !sidebar.open}
     <button
       class="fixed left-3 top-2.5 hidden rounded p-1.5 hover:bg-roam sm:block"
       in:fly={{ duration: 200, delay: 100, x: -48 }}
-      on:click={() => sidebar.open()}
+      onclick={() => sidebar.setOpen(true)}
     >
       <Icon which={PanelRightIcon} />
     </button>
   {/if}
   <!-- mobile back button -->
-  <button class="py-1 pl-0 pr-2 sm:hidden" on:click={() => goto("/")}>
+  <button class="py-1 pl-0 pr-2 sm:hidden" onclick={() => goto("/")}>
     <Icon which={ChevronLeftIcon} sz="md" adjust={1.15} />
   </button>
   <!-- list icon & name -->

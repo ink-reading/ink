@@ -11,10 +11,17 @@
 <script lang="ts">
   import type { ComponentType } from "svelte";
 
-  export let which: ComponentType;
-  export let sz: "xs" | "sm" | "md" | "lg" | "xl" = "sm";
-  export let amp: number = 1;
-  export let adjust: number | undefined = undefined;
+  let {
+    which,
+    sz = "sm",
+    amp = 1,
+    adjust = undefined,
+  }: {
+    which: ComponentType;
+    sz?: "xs" | "sm" | "md" | "lg" | "xl";
+    amp?: number;
+    adjust?: number;
+  } = $props();
 
   const size = ICON_SIZE[sz];
   const ampSize = size * amp;

@@ -31,12 +31,12 @@
     <!-- pc back button -->
     <button
       class="p-1.5 rounded hover:text-prose-accent hover:bg-roam hidden sm:block"
-      on:click={() => goto("/list/today")}
+      onclick={() => goto("/list/today")}
     >
       <Icon which={ChevronLeftIcon} adjust={1.15} />
     </button>
     <!-- mobile back button -->
-    <button class="py-1 pr-2 sm:hidden" on:click={() => goto("/list/today")}>
+    <button class="py-1 pr-2 sm:hidden" onclick={() => goto("/list/today")}>
       <Icon which={ChevronLeftIcon} sz="md" adjust={1.15} />
     </button>
     <section class="flex gap-1">

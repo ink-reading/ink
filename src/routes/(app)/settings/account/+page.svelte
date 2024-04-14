@@ -1,7 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-
-  export let data;
+  let { data } = $props();
 </script>
 
 <h1>Profile</h1>

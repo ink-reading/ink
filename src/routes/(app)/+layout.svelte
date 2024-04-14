@@ -1,8 +1,8 @@
 <script>
   import Layout from "$lib/components/biz/Layout.svelte";
-  export let data;
+  let { data, children } = $props();
 </script>
 
 <Layout listing={data.listing}>
-  <slot />
+  {@render children()}
 </Layout>

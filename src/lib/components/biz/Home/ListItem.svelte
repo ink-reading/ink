@@ -1,13 +1,19 @@
 <script lang="ts">
   import { IconMore } from "$lib/assets/icons";
-  import { page } from "$app/stores";
 
-  export let id: string;
-  export let name: string;
-  export let unread: number;
+  let {
+    id,
+    name,
+    unread,
+  }: {
+    id: string;
+    name: string;
+    unread: number;
+  } = $props();
 
-  $: active = $page.params.id === id;
-  $: href = id === "digest" ? "/digest" : `/list/${id}`;
+  // const active = $derived($page.params.id === id);
+  const active = false;
+  const href = $derived(id === "digest" ? "/digest" : `/list/${id}`);
 </script>
 
 <a
@@ -23,12 +29,12 @@
       {unread}
     </span>
   {/if}
-  <button
+  <span
     class="w-0 shrink-0 overflow-hidden text-prose-pale hover:text-prose
     {unread !== 0 && 'transition-[width] duration-75'}
     focus-visible:w-5 focus-visible:p-0.5 group-hover/item:w-5
     group-hover/item:p-0.5 group-focus-visible/item:w-5 group-focus-visible/item:p-0.5"
   >
     <IconMore />
-  </button>
+  </span>
 </a>

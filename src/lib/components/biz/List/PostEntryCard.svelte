@@ -14,14 +14,18 @@
     RssIcon,
   } from "lucide-svelte";
 
-  export let id: string;
-  export let title: string;
-  export let brief: string;
-  export let origin: string;
-  export let ty: string;
-  export let date: string;
-  export let readed: boolean;
-  export let pic: string | undefined;
+  type Props = {
+    id: string;
+    title: string;
+    brief: string;
+    origin: string;
+    readed: boolean;
+    ty: string;
+    date: string;
+    pic?: string;
+  };
+
+  let { id, title, brief, origin, readed, ty, date, pic }: Props = $props();
 </script>
 
 <a

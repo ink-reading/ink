@@ -1,18 +1,13 @@
 <script lang="ts">
   import {
     ArchiveIcon,
-    Bookmark,
     BookmarkIcon,
-    ChevronsLeftIcon,
     CircleIcon,
-    Coffee,
     CoffeeIcon,
     ConstructionIcon,
     HashIcon,
     InboxIcon,
-    LibraryIcon,
     MoonIcon,
-    PanelLeft,
     PanelLeftIcon,
     PlusIcon,
     PlusSquareIcon,
@@ -20,31 +15,25 @@
     RssIcon,
     ScrollTextIcon,
     SearchIcon,
-    Settings,
     Settings2Icon,
     SunIcon,
   } from "lucide-svelte";
-  import Indicator from "./Indicator.svelte";
-  import { sidebar, theme } from "$lib/stores/layout";
+  import sidebar from "$lib/stores/layout/sidebar.svelte";
   import ListItem from "./ListItem.svelte";
   import SourceBtn from "./SourceBtn.svelte";
   import EntryFolder from "./EntryFolder.svelte";
   import EntryItem from "./EntryItem.svelte";
   import { goto } from "$app/navigation";
-  import { IconPlus, IconSettings } from "$lib/assets/icons";
   import Icon from "$lib/components/unit/Icon.svelte";
-  import { K_THEME } from "$lib/config/constants";
+  import theme from "$lib/stores/layout/theme.svelte";
 
-  export let listing: any;
+  let {
+    listing,
+  }: {
+    listing: any;
+  } = $props();
 
   const { lists, entries } = listing;
-
-  const toggleTheme = () => {
-    const newTheme = $theme === "light" ? "dark" : "light";
-    localStorage?.setItem(K_THEME, newTheme);
-    document?.documentElement.classList.toggle("dark");
-    theme.toggle();
-  };
 </script>
 
 <nav class="min-h-screen sm:flex sm:h-screen sm:flex-col sm:justify-between overscroll-y-contain">
@@ -65,10 +54,10 @@
       <button class="p-1.5 rounded hover:bg-roam">
         <Icon which={PlusSquareIcon} />
       </button>
-      <button class="p-1.5 rounded hover:bg-roam" on:click={toggleTheme}>
-        <Icon which={$theme === "light" ? MoonIcon : SunIcon} />
+      <button class="p-1.5 rounded hover:bg-roam" onclick={theme.toggle}>
+        <Icon which={theme.mode === "light" ? MoonIcon : SunIcon} />
       </button>
-      <button class="p-1.5 rounded hover:bg-roam" on:click={() => sidebar.close()}>
+      <button class="p-1.5 rounded hover:bg-roam" onclick={() => sidebar.setOpen(false)}>
         <Icon which={PanelLeftIcon} />
       </button>
     </div>
@@ -77,7 +66,7 @@
   <!-- mobile top bar -->
   <section class="sticky top-0 z-30 flex flex-col px-3.5 py-2.5 sm:hidden bg-background">
     <div class="flex justify-between">
-      <button class="p-1" on:click={() => goto("/settings")}>
+      <button class="p-1" onclick={() => goto("/settings")}>
         <Icon which={Settings2Icon} sz="md" />
       </button>
       <button class="p-1">

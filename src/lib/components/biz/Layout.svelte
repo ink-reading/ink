@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { sidebar, sideWidth } from "$lib/stores/layout";
+  import sidebar from "$lib/stores/layout/sidebar.svelte";
   import Home from "./Home/Home.svelte";
 
-  export let listing: any;
+  let { listing } = $props();
 
   let asideEl: HTMLElement;
   const MIN_SIDE_WIDTH = 240;
   const MAX_SIDE_WIDTH = 640;
-  let resizing = false;
+  let resizing = $state(false);
   const onResize = (ev: MouseEvent) => {
     if (ev.x <= MIN_SIDE_WIDTH || ev.x >= MAX_SIDE_WIDTH) return;
-    $sideWidth = ev.x;
+    sidebar.setWidth(ev.x);
   };
   const startResize = () => {
     resizing = true;
@@ -23,8 +23,8 @@
 </script>
 
 <svelte:document
-  on:mousemove={resizing ? onResize : undefined}
-  on:mouseup={resizing ? stopResize : undefined}
+  onmousemove={resizing ? onResize : undefined}
+  onmouseup={resizing ? stopResize : undefined}
 />
 
 <div id="app" class="w-full sm:flex">
@@ -32,10 +32,10 @@
   <aside
     bind:this={asideEl}
     class="hidden shrink-0 overflow-hidden duration-200 sm:block sm:h-screen"
-    style:width={`${$sidebar ? $sideWidth : 0}px`}
+    style:width={`${sidebar.open ? sidebar.width : 0}px`}
   >
     <!-- inner wrapper -->
-    <div class="" style:width={`${$sideWidth}px`}>
+    <div class="" style:width={`${sidebar.width}px`}>
       <Home {listing} />
     </div>
   </aside>
@@ -44,9 +44,9 @@
   <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
   <div
     class="transition-[flex-basis] hidden cursor-col-resize select-none border-[0.5px] border-background bg-aux-line duration-200 sm:block
-    {$sidebar ? 'basis-[2px]' : 'basis-0'}"
+    {sidebar.open ? 'basis-[2px]' : 'basis-0'}"
     role="separator"
-    on:mousedown={startResize}
+    onmousedown={startResize}
   ></div>
 
   <!-- main content -->
