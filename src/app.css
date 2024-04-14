@@ -29,17 +29,17 @@
 :root.dark {
   --color-primary: #d98686;
   --color-primary-accent: #c17272;
-  --color-background: #222222;
+  --color-background: #1b1b1b;
 
   --color-prose: #afafaf;
   --color-prose-weak: #929292;
   --color-prose-pale: #717171;
   --color-prose-accent: #c1c1c1;
 
-  --color-roam: #2d2d2d;
+  --color-roam: #2d2d2d90;
   --color-roam-overlay: #3d3d3da0;
   --color-roam-primary: #c1727220;
-  --color-roam-weak: #2d2d2d80;
+  --color-roam-weak: #2d2d2d60;
   --color-roam-accent: #3d3d3da0;
 
   --color-aux-danger: #d91431;
