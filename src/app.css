@@ -3,32 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #935050;
-  --color-primary-accent: #935050;
+  --color-primary: #6670a5;
+  --color-primary-accent: #6670a5;
   --color-background: #ffffff;
 
-  --color-prose: #282a30;
-  --color-prose-weak: #3c4149;
-  --color-prose-pale: #979ca2;
-  --color-prose-accent: #1b1b1b;
-
-  --color-roam: #f1f1f1a0;
-  --color-roam-overlay: #e1e1e190;
-  --color-roam-primary: #93505020;
-  --color-roam-weak: #f1f1f180;
-  --color-roam-accent: #f1f1f1;
+  --color-prose: #424149;
+  --color-prose-weak: #6f6f6f;
+  --color-prose-pale: #8e8d91;
+  --color-prose-accent: #000000;
 
   --color-aux-danger: #d91431;
   --color-aux-danger-accent: #b51029;
-  --color-aux-line: #f1f1f1;
+  --color-aux-line: #efefef;
+  --color-aux-line-weak: #f2f2f2;
   --color-aux-tip: #141414;
-  --color-aux-scrollbar: #bfbfbfbf;
-  --color-aux-scrollbar-accent: #bbbbbb;
+  --color-aux-scrollbar: #bbbbbb;
+  --color-aux-scrollbar-accent: #aaaaaa;
 }
 
 :root.dark {
-  --color-primary: #d98686;
-  --color-primary-accent: #c17272;
+  --color-primary: #838ec9;
+  --color-primary-accent: #838ec9;
   --color-background: #1b1b1b;
 
   --color-prose: #afafaf;
@@ -36,15 +31,10 @@
   --color-prose-pale: #717171;
   --color-prose-accent: #c1c1c1;
 
-  --color-roam: #2d2d2d90;
-  --color-roam-overlay: #3d3d3da0;
-  --color-roam-primary: #c1727220;
-  --color-roam-weak: #2d2d2d60;
-  --color-roam-accent: #3d3d3da0;
-
   --color-aux-danger: #d91431;
   --color-aux-danger-accent: #b51029;
   --color-aux-line: #2d2d2d;
+  --color-aux-line-weak: #2d2d2d;
   --color-aux-tip: #141414;
   --color-aux-scrollbar: #3a3a3a;
   --color-aux-scrollbar-accent: #404040;
@@ -54,6 +44,7 @@
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
   @apply bg-background;
+  /* font-family: "Lora"; */
 }
 
 a {
@@ -121,25 +112,10 @@ a {
       }
     }
   }
-
-  /* truncate */
-  .truncate-2,
-  .truncate-3 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+  .no-scrollbar {
+    scrollbar-width: none;
   }
-  .truncate-2 {
-    -webkit-line-clamp: 2;
-  }
-  .truncate-3 {
-    -webkit-line-clamp: 3;
-  }
-}
-
-@media screen and (max-width: 639.9px) {
-  svg.lucide-icon {
-    /* transform: scale(1.25); */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

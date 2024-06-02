@@ -1,5 +1,5 @@
 <script context="module">
-  const ICON_SIZE = {
+  const ICON_SIZE_MAP = {
     xs: 12,
     sm: 16,
     md: 20,
@@ -13,43 +13,15 @@
 
   let {
     which,
-    sz = "sm",
-    amp = 1,
-    adjust = undefined,
+    size = "sm",
   }: {
     which: ComponentType;
-    sz?: "xs" | "sm" | "md" | "lg" | "xl";
-    amp?: number;
-    adjust?: number;
+    size?: "xs" | "sm" | "md" | "lg" | "xl";
   } = $props();
 
-  const size = ICON_SIZE[sz];
-  const ampSize = size * amp;
+  const sz = ICON_SIZE_MAP[size];
 </script>
 
-<div
-  class="ink-icon {adjust !== undefined && 'adjust'}"
-  style:--sz={`${size}px`}
-  style:--amp-sz={`${ampSize}px`}
-  style:--adjust={adjust !== undefined ? adjust : 1}
->
+<div class="ink-icon" style:width={`${sz}px`} style:height={`${sz}px`}>
   <svelte:component this={which} size="100%" width="100%" height="100%" />
 </div>
-
-<style>
-  :global(.ink-icon.adjust) {
-    transform: scale(var(--adjust));
-  }
-
-  :global(.ink-icon) {
-    width: var(--amp-sz);
-    height: var(--amp-sz);
-  }
-
-  @media (min-width: 640px) {
-    :global(.ink-icon) {
-      width: var(--sz);
-      height: var(--sz);
-    }
-  }
-</style>

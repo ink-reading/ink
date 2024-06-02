@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Home from "$lib/components/biz/Home/Home.svelte";
+  import AppAside from "./+components/aside/AppAside.svelte";
   let { data } = $props();
 </script>
 
 <div class="sm:hidden">
-  <Home listing={data.listing} />
+  <AppAside listing={data.listing} />
 </div>

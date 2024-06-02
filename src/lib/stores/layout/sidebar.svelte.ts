@@ -1,4 +1,6 @@
-const DEFAULT_SIDEBAR_WIDTH = 350;
+export const MIN_SIDEBAR_WIDTH = 240;
+export const MAX_SIDEBAR_WIDTH = 480;
+const DEFAULT_SIDEBAR_WIDTH = 320;
 
 let open = $state(true);
 let width = $state(DEFAULT_SIDEBAR_WIDTH);

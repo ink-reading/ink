@@ -1,8 +1,15 @@
-<script>
-  import Layout from "$lib/components/biz/Layout.svelte";
-  let { data, children } = $props();
+<script lang="ts">
+  import { type Snippet } from "svelte";
+  import AppLayout from "./+components/AppLayout.svelte";
+
+  type Props = {
+    data: any;
+    children: Snippet;
+  };
+
+  let { data, children }: Props = $props();
 </script>
 
-<Layout listing={data.listing}>
+<AppLayout listing={data.listing}>
   {@render children()}
-</Layout>
+</AppLayout>
