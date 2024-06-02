@@ -11,6 +11,11 @@
 <script lang="ts">
   import type { ComponentType } from "svelte";
 
+  type Props = {
+    which: ComponentType;
+    size?: "xs" | "sm" | "md" | "lg" | "xl";
+  };
+
   let {
     which,
     size = "sm",

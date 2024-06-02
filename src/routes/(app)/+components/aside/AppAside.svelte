@@ -126,7 +126,7 @@
     <div class="px-0">
       <!-- mobile search bar -->
       <section class="flex flex-col pb-3 pt-1 sm:hidden">
-        <div class="flex items-center gap-2.5 rounded-lg bg-roam px-2 py-1 text-prose-weak">
+        <div class="bg-roam flex items-center gap-2.5 rounded-lg px-2 py-1 text-prose-weak">
           <span class="p-0.5">
             <Icon which={SearchIcon} />
           </span>
@@ -147,7 +147,7 @@
       </div>
 
       <!-- divider -->
-      <div class="bg-aux-line-weak my-3 h-px w-full"></div>
+      <div class="my-3 h-px w-full bg-aux-line-weak"></div>
 
       <!-- subscribed -->
       <div class="flex flex-col gap-0">
@@ -216,7 +216,7 @@
       </div>
 
       <!-- divider -->
-      <div class="bg-aux-line-weak my-3 h-px w-full"></div>
+      <div class="my-3 h-px w-full bg-aux-line-weak"></div>
 
       <!-- tags & notes -->
       <div class="flex flex-col gap-0 pb-4">

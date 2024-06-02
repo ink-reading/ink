@@ -29,7 +29,7 @@
 </script>
 
 <a
-  class="border-aux-line-weak group relative flex w-full items-center gap-4 overflow-hidden border-b py-2"
+  class="group relative flex w-full items-center gap-4 overflow-hidden border-b border-aux-line-weak py-2"
   href="/read/{id}"
 >
   <!-- pic (logo/avatar) -->

@@ -6,9 +6,9 @@
 <main class="flex h-screen items-center justify-center text-prose">
   <div class="flex grow items-center justify-center">
     <div class="w-96 px-4">
-      <div class="pb-12 flex justify-between items-end gap-4 font-mono leading-none">
-        <div class="text-primary text-md pb-px font-medium">ink</div>
-        <div class="text-prose-pale text-xs">/// UNDER CONSTRUCTION</div>
+      <div class="flex items-end justify-between gap-4 pb-12 font-mono leading-none">
+        <div class="text-md pb-px font-medium text-primary">ink</div>
+        <div class="text-xs text-prose-pale">/// UNDER CONSTRUCTION</div>
       </div>
       <form method="post" use:enhance>
         <div class="pb-4">
@@ -18,7 +18,7 @@
             id="username"
             placeholder="Username"
             autocomplete="username"
-            class="w-full rounded bg-roam px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-prose-pale focus-visible:border-primary"
+            class="bg-roam w-full rounded px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-prose-pale focus-visible:border-primary"
           />
         </div>
 
@@ -30,7 +30,7 @@
             id="password"
             placeholder="Password"
             autocomplete="current-password"
-            class="w-full rounded bg-roam px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-prose-pale focus-visible:border-primary"
+            class="bg-roam w-full rounded px-4 py-2 outline-none ring-primary ring-offset-0 placeholder:text-prose-pale focus-visible:border-primary"
           />
         </div>
 
@@ -41,7 +41,7 @@
         {/if}
 
         <button
-          class="mt-6 w-full rounded border-2 border-roam-accent p-2 text-prose-pale hover:text-primary"
+          class="border-roam-accent mt-6 w-full rounded border-2 p-2 text-prose-pale hover:text-primary"
           >Login</button
         >
       </form>
