@@ -4,5 +4,4 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
 export const queryClient = postgres(DB_URL);
-
 export const db = drizzle(queryClient);

@@ -1,47 +1,59 @@
-import { lucia } from "lucia";
-import { sveltekit } from "lucia/middleware";
-import { postgres as postgresAdapter } from "@lucia-auth/adapter-postgresql";
+import { Lucia, generateIdFromEntropySize } from "lucia";
+import { hash } from "@node-rs/argon2";
+import { DrizzlePostgreSQLAdapter } from "@lucia-auth/adapter-drizzle";
 import { dev } from "$app/environment";
+import { ADMIN_DEFAULT_PASSWORD } from "$env/static/private";
 
-import { queryClient } from "./db";
+import { db } from "./db";
+import { sessions, users } from "./schema";
+const adapter = new DrizzlePostgreSQLAdapter(db, sessions, users);
 
-export const auth = lucia({
-  env: dev ? "DEV" : "PROD",
-  middleware: sveltekit(),
-  adapter: postgresAdapter(queryClient, {
-    user: "auth_user",
-    key: "user_key",
-    session: "user_session",
-  }),
-
-  getUserAttributes: data => {
+export const lucia = new Lucia(adapter, {
+  sessionCookie: {
+    attributes: {
+      secure: !dev,
+    },
+  },
+  getUserAttributes: attributes => {
     return {
-      username: data.username,
-      role: data.role,
+      username: attributes.username,
+      role: attributes.role,
     };
   },
 });
 
-export type Auth = typeof auth;
+declare module "lucia" {
+  interface Register {
+    Lucia: typeof lucia;
+    DatabaseUserAttributes: DatabaseUserAttributes;
+  }
+}
+
+interface DatabaseUserAttributes {
+  username: string;
+  password_hash: string;
+  role: "admin" | "user";
+}
 
 export async function createAdminAccount() {
   try {
-    const adminUsers = await queryClient`select * from auth_user where username = 'admin'`;
-    if (adminUsers.length > 0) {
-      // Admin account already exists
-      return;
+    if (!ADMIN_DEFAULT_PASSWORD) {
+      throw new Error("ADMIN_DEFAULT_PASSWORD must be defined in .env");
     }
-    await auth.createUser({
-      key: {
-        providerId: "username",
-        providerUserId: "admin",
-        password: "ink-reading",
-      },
-      attributes: {
-        username: "admin",
+    await db
+      .insert(users)
+      .values({
+        id: generateIdFromEntropySize(10),
         role: "admin",
-      },
-    });
+        username: "admin",
+        passwordHash: await hash(ADMIN_DEFAULT_PASSWORD, {
+          memoryCost: 19456,
+          timeCost: 2,
+          outputLen: 32,
+          parallelism: 1,
+        }),
+      })
+      .onConflictDoNothing({ target: users.username });
   } catch (err) {
     console.error("Failed to create admin account: \n", err);
     process.exit(1);

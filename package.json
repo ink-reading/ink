@@ -15,9 +15,10 @@
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
     "prepare": "husky",
-    "db:gen": "drizzle-kie generate:pg",
-    "db:push": "drizzle-kit push:pg",
-    "db:check": "drizzle-kit check:pg",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kie generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:check": "drizzle-kit check",
     "db:drop": "drizzle-kit drop",
     "db:studio": "drizzle-kit studio"
   },
@@ -53,10 +54,12 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@lucia-auth/adapter-postgresql": "^2.0.2",
+    "@lucia-auth/adapter-drizzle": "^1.0.7",
+    "@node-rs/argon2": "^1.8.3",
+    "@types/node": "^20.13.0",
     "dayjs": "^1.11.11",
     "drizzle-orm": "^0.31.0",
-    "lucia": "^2.7.7",
+    "lucia": "^3.2.0",
     "lucide-svelte": "^0.383.0",
     "postgres": "^3.4.4"
   }
