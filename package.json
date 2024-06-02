@@ -22,7 +22,7 @@
     "db:studio": "drizzle-kit studio"
   },
   "lint-staged": {
-    "**/*": "prettier --write ."
+    "*.{js,ts,svelte,css,html}": "prettier --write"
   },
   "devDependencies": {
     "@eslint/js": "^9.4.0",
